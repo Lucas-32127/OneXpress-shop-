@@ -1,63 +1,121 @@
-<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OneXpress Shop - FOTOS REAIS</title>
+<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OneXpress Shop - 9 Produtos Reais</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f6f7f9;padding-bottom:85px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f6f7f9;padding-bottom:90px}
 .top{background:#000;color:#fff;padding:14px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:100}
-.badge{background:#ff3b30;color:#fff;border-radius:10px;padding:2px 6px;font-size:10px;position:absolute;top:-8px;right:-8px}
-.hero{margin:12px;background:linear-gradient(135deg,#000,#25D366);border-radius:16px;padding:16px;color:#fff;display:flex;justify-content:space-between}
-.search{margin:12px;background:#fff;border-radius:14px;padding:4px 12px;display:flex;gap:10px}.search input{flex:1;border:0;outline:0;padding:12px 0}
-.cats{display:flex;gap:8px;padding:0 12px;overflow-x:auto}.cat{background:#fff;border:1px solid #eee;padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;white-space:nowrap}.cat.on{background:#111;color:#fff}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}.prod{background:#fff;border-radius:16px;padding:10px;box-shadow:0 4px 12px rgba(0,0,0,.06);position:relative}.img{width:100%;height:160px;background:#f0f0f0;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}.img img{width:100%;height:100%;object-fit:cover}
-.price{font-weight:900;font-size:16px}.price span{color:#25D366}.old{text-decoration:line-through;color:#999;font-size:11px}.off{position:absolute;top:8px;left:8px;background:#ff3b30;color:#fff;font-size:9px;font-weight:900;padding:4px 7px;border-radius:6px;z-index:2}.add{width:100%;background:#111;color:#fff;border:0;padding:11px;border-radius:10px;font-weight:800;font-size:12px;margin-top:8px}
-.cart{position:fixed;bottom:75px;left:10px;right:10px;background:#fff;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.3);padding:16px;display:none;max-height:72vh;overflow:auto;z-index:90}.cart.show{display:block}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0 10px;z-index:80}.bottom div{text-align:center;font-size:10px;flex:1;font-weight:700;color:#888}.bottom div.on{color:#111}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:flex-end;justify-content:center}.modal.show{display:flex}.sheet{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:480px;max-height:94vh;overflow:auto}.sheetHead{padding:18px 16px 12px;position:sticky;top:0;background:#fff;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between}.sheetBody{padding:16px}
-.inp{width:100%;background:#f5f6f7;border:1.5px solid #eee;padding:13px;border-radius:12px;margin:6px 0;font-size:14px}.btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:900;font-size:14px;margin-top:8px}.btnP{background:#111;color:#fff}.btnG{background:#25D366;color:#fff}.btnL{background:#f5f6f7;color:#111}
-.tabs{display:flex;gap:6px;background:#f5f6f7;padding:4px;border-radius:12px;margin:12px 0}.tab{flex:1;padding:10px;text-align:center;border-radius:9px;font-weight:800;font-size:11px}.tab.on{background:#111;color:#fff}
-.upBox{border:2px dashed #ddd;background:#fafafa;border-radius:14px;padding:22px;text-align:center;margin:10px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}.prod{background:#fff;border-radius:16px;padding:10px;box-shadow:0 4px 12px rgba(0,0,0,.06);position:relative}
+.img{width:100%;height:150px;background:#f0f0f0;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}.img img{width:100%;height:100%;object-fit:cover}
+.price{font-weight:900;font-size:16px;color:#25D366}.add{width:100%;background:#111;color:#fff;border:0;padding:11px;border-radius:10px;font-weight:800;margin-top:8px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:10px 0;z-index:80}.bottom div{text-align:center;font-size:11px;flex:1;font-weight:800}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center;padding:12px}.modal.show{display:flex}.sheet{background:#fff;border-radius:16px;width:100%;max-width:400px;max-height:90vh;overflow:auto;padding:16px}
+.inp{width:100%;background:#f5f6f7;border:1px solid #ddd;padding:12px;border-radius:10px;margin:6px 0}.btn{width:100%;padding:13px;border-radius:10px;border:0;font-weight:900;margin-top:8px}.btnP{background:#111;color:#fff}.btnG{background:#25D366;color:#fff}
 </style></head><body>
-<div class="top"><div><b>One<span style="color:#25D366">Xpress</span> Shop</b><div style="font-size:9px;opacity:.7">9 PRODUTOS REAIS • ENTREGA 24H</div></div><div style="display:flex;gap:12px;align-items:center"><div style="background:#25D366;color:#000;padding:4px 8px;border-radius:20px;font-size:9px;font-weight:900">925356739</div><div onclick="togCart()" style="position:relative;font-size:22px">🛒<span id="cartNum" class="badge">0</span></div></div></div>
-<div class="hero"><div><div style="background:#25D366;color:#000;display:inline-block;padding:3px 8px;border-radius:20px;font-size:9px;font-weight:900">🔥 FOTOS REAIS</div><div style="font-weight:900;font-size:14px;margin-top:4px">TIMBERLAND 10.000 KZ<br>SABRINAS 3.000 KZ</div><div style="font-size:10px;opacity:.8;margin-top:4px">✓ Frete 1500 Kz • ✓ Paga na Entrega</div></div><div style="font-size:38px">📸</div></div>
-<div class="search">🔍<input id="busca" placeholder="Buscar KSM7403..." oninput="render()"></div>
-<div class="cats"><div class="cat on" onclick="setCat(this,'')">Tudo (9)</div><div class="cat" onclick="setCat(this,'Timberland')">🥾 Timberland</div><div class="cat" onclick="setCat(this,'Sabrinas')">👠 Sabrinas</div><div class="cat" onclick="setCat(this,'Infantil')">👧 Infantil</div></div>
+<div class="top"><b>One<span style="color:#25D366">Xpress</span> Shop</b><div>🛒 <b id="cartNum">0</b></div></div>
+<div style="margin:12px;background:linear-gradient(135deg,#000,#25D366);border-radius:14px;padding:14px;color:#fff"><b>9 PRODUTOS REAIS</b><br><small>Timberland 10.000 Kz | Sabrinas 3.000 Kz | Frete 1500 Kz | 925356739</small></div>
 <div class="grid" id="grid"></div>
-<div class="cart" id="cartBox"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><b>🛒 Carrinho <span id="cCart">0</span></b><span onclick="togCart()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px">✕</span></div><div id="cartList"></div><div style="background:#111;color:#fff;padding:12px;border-radius:12px;margin-top:10px"><div style="display:flex;justify-content:space-between;font-size:12px;opacity:.7"><span>Subtotal</span><span id="subT">0 Kz</span></div><div style="display:flex;justify-content:space-between;font-size:16px;font-weight:900;margin-top:8px;border-top:1px solid #333;padding-top:8px"><span>Total c/ entrega</span><span id="totT" style="color:#25D366">0 Kz</span></div></div><button class="btn btnG" onclick="openM('checkout')">📲 FINALIZAR WHATSAPP</button></div>
-<div class="bottom"><div class="on" onclick="window.scrollTo(0,0)">🏠<br>Inicio</div><div onclick="togCart()">🛒<br>Carrinho <b id="bCart">0</b></div><div onclick="openM('pedidos')">📦<br>Pedidos</div><div onclick="openM('adm')">⚙️<br>ADM</div></div>
-<div id="mCheckout" class="modal"><div class="sheet"><div class="sheetHead"><b>Finalizar Pedido</b><span onclick="closeM()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px">✕</span></div><div class="sheetBody"><input class="inp" id="nome" placeholder="Nome *"><input class="inp" id="tel" placeholder="WhatsApp *" value="925"><textarea class="inp" id="end" placeholder="Bairro, Rua... *"></textarea><select class="inp" id="paySel"><option>💳 Multicaixa Express</option><option>💰 Paga na Entrega</option><option>🏦 Transferência</option></select><div style="background:#f0fff4;border:1px solid #25D366;border-radius:12px;padding:12px;margin-top:10px"><b id="chkTot" style="color:#25D366;font-size:20px">0 Kz</b></div><button class="btn btnG" onclick="enviarZap()">📲 ENVIAR 925356739</button></div></div></div>
-<div id="mPedidos" class="modal"><div class="sheet"><div class="sheetHead"><b>📦 Pedidos</b><span onclick="closeM()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px">✕</span></div><div class="sheetBody" id="pedList"></div></div></div>
-<div id="mAdm" class="modal"><div class="sheet" style="max-width:520px"><div class="sheetHead"><b>⚙️ ADM PRO</b><span onclick="closeM()" style="background:#ff3b30;color:#fff;padding:6px 10px;border-radius:20px">✕</span></div><div class="sheetBody"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div style="background:#111;color:#fff;border-radius:12px;padding:12px"><small>VENDAS</small><b id="kVenda" style="display:block;color:#25D366">0 Kz</b></div><div style="background:#f5f6f7;border-radius:12px;padding:12px"><small>PRODUTOS</small><b id="kProd">9</b></div></div><div class="tabs"><div class="tab on" onclick="setTab(this,'prod')">📦 PRODUTOS</div><div class="tab" onclick="setTab(this,'ped')">📋 PEDIDOS</div><div class="tab" onclick="setTab(this,'conf')">⚙️ LOJA</div></div><div id="tabProd"><div style="background:#f5f6f7;border-radius:14px;padding:14px"><b>➕ NOVO PRODUTO COM FOTO</b><input class="inp" id="pNome" placeholder="Nome"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="inp" id="pPreco" type="number" placeholder="Preço"><input class="inp" id="pPrecoAnt" type="number" placeholder="Preço antigo"></div><select class="inp" id="pCat"><option>Timberland</option><option>Sabrinas</option><option>Infantil</option></select><input class="inp" id="pDesc" placeholder="Tamanhos"><input class="inp" id="pEstoque" type="number" placeholder="Estoque"><div class="upBox" id="upBox" onclick="document.getElementById('fileImg').click()"><div style="font-size:30px">📸</div><b>Carregar foto da galeria</b><input type="file" id="fileImg" accept="image/*" hidden><img id="preview" style="width:100%;height:160px;object-fit:cover;border-radius:12px;margin-top:12px;display:none"><div id="fileName" style="font-size:11px;margin-top:8px;color:#25D366"></div></div><button class="btn btnP" onclick="addProd()">💾 PUBLICAR</button></div><div id="admLista" style="margin-top:14px"></div></div><div id="tabPed" style="display:none"><div id="admPedidos"></div></div><div id="tabConf" style="display:none"><div style="background:#f5f6f7;border-radius:14px;padding:14px"><input class="inp" id="cNome" value="OneXpress Shop"><input class="inp" id="cZap" value="244925356739"><input class="inp" id="cFrete" value="1500" type="number"><button class="btn btnP" onclick="saveConf()">Salvar</button></div></div></div></div></div>
+<div class="bottom"><div onclick="window.scrollTo(0,0)">🏠<br>Inicio</div><div onclick="alert('Carrinho: '+cart.length+' itens')">🛒<br>Carrinho <b id="bCart">0</b></div><div onclick="openAdm()">⚙️<br>ADM</div></div>
+
+<div id="mAdm" class="modal"><div class="sheet">
+<h3>➕ PUBLICAR PRODUTO</h3>
+<p style="font-size:11px;color:#666;margin:6px 0">Carrega foto da galeria, preenche e clica PUBLICAR - aparece na hora!</p>
+<input class="inp" id="pNome" placeholder="Nome: Ex: Timberland Azul 42">
+<input class="inp" id="pPreco" type="number" placeholder="Preço: 10000">
+<input class="inp" id="pDesc" placeholder="Descrição: Tamanhos 39-44">
+<div style="border:2px dashed #25D366;background:#f0fff4;border-radius:12px;padding:20px;text-align:center;margin:10px 0" onclick="document.getElementById('fileImg').click()">
+<div style="font-size:30px">📸</div><b>CLICAR PARA CARREGAR FOTO</b><br><small>Galeria do telefone</small>
+<input type="file" id="fileImg" accept="image/*" hidden>
+<img id="preview" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-top:10px;display:none">
+</div>
+<button class="btn btnP" onclick="publicar()">💾 PUBLICAR AGORA NA LOJA</button>
+<div id="listaAdm" style="margin-top:12px"></div>
+<button class="btn" style="background:#eee" onclick="closeAdm()">FECHAR LOJA</button>
+</div></div>
+
 <script>
-localStorage.clear();
-var defaultProds=[
-{n:"Sabrina KSM7403 Fashion",p:3000,pa:4500,cat:"Sabrinas",d:"Tam 36-42 • Preto, Vinho, Branco, Nude • 40PRS",img:"prod_1.jpg",est:40},
-{n:"Sabrina KSM7463 Laço",p:3000,pa:4500,cat:"Sabrinas",d:"Tam 36-42 • Preto, Vermelho, Branco, Mostarda",img:"prod_2.jpg",est:40},
-{n:"Sabrina KSM7472 Luxo DK",p:3000,pa:5000,cat:"Sabrinas",d:"Tam 36-42 • Verde, Preto, Marrom, Azul",img:"prod_3.jpg",est:40},
-{n:"Sabrina KSM7548 Lisa",p:3000,pa:4000,cat:"Sabrinas",d:"Tam 36-42 • Preto, Prata, Marrom, Vermelho",img:"prod_4.jpg",est:40},
-{n:"Sabrina Infantil KGM7124",p:3000,pa:4000,cat:"Infantil",d:"Tam 25-30 • Preto, Branco, Vermelho, Rosa",img:"prod_5.jpg",est:40},
-{n:"Sabrina Infantil KGM7128",p:3000,pa:4000,cat:"Infantil",d:"Tam 25-30 • Bege, Rosa, Marrom, Preto",img:"prod_6.jpg",est:40},
-{n:"Timberland KA16700C",p:10000,pa:15000,cat:"Timberland",d:"Tam 39-44 • Azul, Preto, Azul/Marrom • 24PRS",img:"prod_7.jpg",est:24},
-{n:"Timberland Premium Azul",p:10000,pa:16000,cat:"Timberland",d:"Tam 39-44 • Azul marinho • Original",img:"prod_8.jpg",est:15},
-{n:"Timberland KA16807A",p:10000,pa:15000,cat:"Timberland",d:"Tam 39-44 • Preto, Azul, Branco • 24PRS",img:"prod_9.jpg",est:24}
+var prods = [
+{n:"Sabrina KSM7403 Fashion",p:3000,d:"Tam 36-42 • 4 cores • 40PRS",img:"prod_1.jpg"},
+{n:"Sabrina KSM7463 Laço",p:3000,d:"Tam 36-42 • 4 cores",img:"prod_2.jpg"},
+{n:"Sabrina KSM7472 Luxo",p:3000,d:"Tam 36-42 • Pedraria",img:"prod_3.jpg"},
+{n:"Sabrina KSM7548 Lisa",p:3000,d:"Tam 36-42 • Simples",img:"prod_4.jpg"},
+{n:"Infantil KGM7124",p:3000,d:"Tam 25-30 • Menina",img:"prod_5.jpg"},
+{n:"Infantil KGM7128",p:3000,d:"Tam 25-30 • Bico branco",img:"prod_6.jpg"},
+{n:"Timberland KA16700C",p:10000,d:"Tam 39-44 • 24PRS",img:"prod_7.jpg"},
+{n:"Timberland Premium Azul",p:10000,d:"Tam 39-44 • Original",img:"prod_8.jpg"},
+{n:"Timberland KA16807A",p:10000,d:"Tam 39-44 • 24PRS",img:"prod_9.jpg"}
 ];
-var prods=defaultProds;
-var cart=[];var pedidos=[];var conf={nome:"OneXpress Shop",zap:"244925356739",frete:1500};
-var tempImg='',catSel='';
-document.getElementById('fileImg').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){tempImg=ev.target.result;document.getElementById('preview').src=tempImg;document.getElementById('preview').style.display='block';document.getElementById('fileName').innerText=f.name};r.readAsDataURL(f)});
-function save(){localStorage.setItem('ox_final10',JSON.stringify(prods));localStorage.setItem('ox_cart10',JSON.stringify(cart));localStorage.setItem('ox_ped10',JSON.stringify(pedidos))}
-function setCat(el,c){document.querySelectorAll('.cat').forEach(x=>x.classList.remove('on'));el.classList.add('on');catSel=c;render()}
-function render(){var g=document.getElementById('grid');var q=(document.getElementById('busca').value||'').toLowerCase();var f=prods.filter(p=>(!catSel||p.cat==catSel)&&(!q||p.n.toLowerCase().includes(q)));var h='';for(var i=0;i<f.length;i++){var p=f[i];var idx=prods.indexOf(p);var off=p.pa&&p.pa>p.p?Math.round((1-p.p/p.pa)*100):0;h+='<div class=prod>'+(off?'<div class=off>-'+off+'% OFF</div>':'')+'<div class=img><img src="'+p.img+'?v='+Date.now()+'" loading=lazy onerror="this.parentElement.innerHTML=\'<div style=padding:30px;text-align:center\'>📸<br><small>Foto: '+p.img+'</small></div>\'"></div><b>'+p.n+'</b><small>'+p.d+'</small><div style="display:flex;gap:6px;margin-top:4px"><div class=price><span>'+p.p.toLocaleString()+' Kz</span></div>'+(p.pa?' <span class=old>'+p.pa.toLocaleString()+'</span>':'')+'</div><small style="color:#25D366">● '+p.est+' pares • '+p.cat+'</small><button class=add onclick="addCart('+idx+')">🛒 + CARRINHO</button></div>'}g.innerHTML=h;var totV=0;for(var i=0;i<pedidos.length;i++)totV+=pedidos[i].total;document.getElementById('kVenda').innerText=totV.toLocaleString()+' Kz';document.getElementById('kProd').innerText=prods.length;renderCart();renderAdm()}
-function addCart(i){var ex=null;for(var j=0;j<cart.length;j++)if(cart[j].idx==i)ex=cart[j];if(ex)ex.q++;else cart.push({idx:i,n:prods[i].n,p:prods[i].p,q:1});save();renderCart();togCart(true)}
-function renderCart(){var t=0,c=0;var h='';for(var i=0;i<cart.length;i++){var it=cart[i];t+=it.p*it.q;c+=it.q;h+='<div style="display:flex;justify-content:space-between;background:#f9f9f9;padding:10px;border-radius:10px;margin-bottom:6px"><div><b style="font-size:13px">'+it.n+'</b><br><small>'+it.p.toLocaleString()+' x '+it.q+'</small></div><div><button onclick="chg('+i+',-1)" style="background:#eee;border:0;padding:6px 10px;border-radius:8px">-</button><b>'+it.q+'</b><button onclick="chg('+i+',1)" style="background:#111;color:#fff;border:0;padding:6px 10px;border-radius:8px">+</button><span onclick="rem('+i+')" style="color:red;margin-left:6px">🗑️</span></div></div>'}document.getElementById('cartList').innerHTML=h||'Vazio';var frete=1500;document.getElementById('subT').innerText=t.toLocaleString()+' Kz';document.getElementById('totT').innerText=(t+frete).toLocaleString()+' Kz';document.getElementById('chkTot').innerText=(t+frete).toLocaleString()+' Kz';document.getElementById('cartNum').innerText=c;document.getElementById('bCart').innerText=c;document.getElementById('cCart').innerText=c}
-function chg(i,d){cart[i].q+=d;if(cart[i].q<=0)cart.splice(i,1);save();renderCart()}
-function rem(i){cart.splice(i,1);save();renderCart()}
-function togCart(f){var c=document.getElementById('cartBox');if(f)c.classList.add('show');else c.classList.toggle('show')}
-function openM(t){closeM();document.getElementById('m'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('show')}
-function closeM(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'))}
-function setTab(el,tab){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));el.classList.add('on');document.getElementById('tabProd').style.display=tab=='prod'?'block':'none';document.getElementById('tabPed').style.display=tab=='ped'?'block':'none';document.getElementById('tabConf').style.display=tab=='conf'?'block':'none'}
-function addProd(){var n=document.getElementById('pNome').value,p=parseInt(document.getElementById('pPreco').value),pa=parseInt(document.getElementById('pPrecoAnt').value)||0,cat=document.getElementById('pCat').value,d=document.getElementById('pDesc').value,est=parseInt(document.getElementById('pEstoque').value)||10;if(!n||!p){alert('Nome e preço');return}prods.unshift({n:n,p:p,pa:pa,cat:cat,d:d,img:tempImg||'',est:est});save();render();alert('Publicado!')}
-function renderAdm(){var el=document.getElementById('admLista');var h='<b>'+prods.length+' PRODUTOS</b>';for(var i=0;i<prods.length;i++){var p=prods[i];h+='<div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:10px;margin:6px 0;display:flex;gap:10px"><div style="width:56px;height:56px;border-radius:10px;overflow:hidden;background:#f5f5f7"><img src="'+p.img+'" style="width:100%;height:100%;object-fit:cover"></div><div style="flex:1"><b style="font-size:12px">'+p.n+'</b><br><small>'+p.cat+' • '+p.p.toLocaleString()+' Kz</small></div><button onclick="delProd('+i+')" style="background:#ff3b301a;color:#ff3b30;border:0;padding:8px 10px;border-radius:8px">🗑️</button></div>'}el.innerHTML=h}
-function delProd(i){if(!confirm('Apagar?'))return;prods.splice(i,1);save();render()}
-function renderAdmPed(){}
-function enviarZap(){var n=document.getElementById('nome').value,t=document.getElementById('tel').value,e=document.getElementById('end').value;if(!n||!t||!e){alert('Preencha');return}if(cart.length==0){alert('Vazio');return}var tot=0,lista='';for(var i=0;i<cart.length;i++){tot+=cart[i].p*cart[i].q;lista+='• '+cart[i].n+' x'+cart[i].q+'\n'}var frete=1500;var msg='🛒 PEDIDO OneXpress\n👤 '+n+'\n📞 '+t+'\n🏠 '+e+'\n\n📦 '+lista+'\n💵 TOTAL: '+(tot+frete).toLocaleString()+' Kz';window.open('https://wa.me/244925356739?text='+encodeURIComponent(msg),'_blank');cart=[];save();renderCart();closeM()}
-function saveConf(){alert('Salvo!')}
+var cart = [];
+var tempFoto = "";
+
+document.getElementById('fileImg').addEventListener('change', function(e){
+  var file = e.target.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(ev){
+    tempFoto = ev.target.result;
+    var pre = document.getElementById('preview');
+    pre.src = tempFoto;
+    pre.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+});
+
+function render(){
+  var g = document.getElementById('grid');
+  var html = "";
+  for(var i=0; i<prods.length; i++){
+    var p = prods[i];
+    var foto = p.img.startsWith('data:')? p.img : p.img;
+    // Se começa com data: é base64, se não é arquivo prod_x.jpg
+    var imgTag = foto.startsWith('data:')? '<img src="'+foto+'">' : '<img src="'+foto+'" onerror="this.parentElement.innerHTML=\'📦<br><small>'+p.img+'</small>\'">';
+    html += '<div class=prod><div class=img>'+imgTag+'</div><b style="font-size:12px">'+p.n+'</b><br><small style="font-size:10px;color:#777">'+p.d+'</small><div class=price>'+p.p.toLocaleString()+' Kz</div><button class=add onclick="addCart('+i+')">+ CARRINHO</button><button onclick="apagar('+i+')" style="width:100%;background:#ff3b3020;color:#ff3b30;border:0;padding:6px;border-radius:8px;margin-top:4px;font-size:10px">🗑️ Apagar</button></div>';
+  }
+  g.innerHTML = html;
+  document.getElementById('cartNum').innerText = cart.length;
+  document.getElementById('bCart').innerText = cart.length;
+  // lista ADM
+  var la = document.getElementById('listaAdm');
+  var h2 = '<b>'+prods.length+' produtos na loja:</b>';
+  for(var i=0;i<prods.length;i++){h2+='<div style="background:#f5f5f7;padding:8px;border-radius:8px;margin:4px 0;font-size:11px;display:flex;justify-content:space-between"><span>'+prods[i].n+' - '+prods[i].p+' Kz</span><span style="color:red" onclick="apagar('+i+')">X</span></div>'}
+  la.innerHTML = h2;
+}
+
+function publicar(){
+  var nome = document.getElementById('pNome').value;
+  var preco = parseInt(document.getElementById('pPreco').value);
+  var desc = document.getElementById('pDesc').value;
+  if(!nome ||!preco){alert('⚠️ Coloca nome e preço!');return}
+  if(!tempFoto){alert('⚠️ Carrega uma foto! Clica no quadrado verde 📸');return}
+
+  // ADICIONA NO INICIO
+  prods.unshift({n:nome, p:preco, d:desc, img:tempFoto});
+
+  // LIMPA FORM
+  document.getElementById('pNome').value='';
+  document.getElementById('pPreco').value='';
+  document.getElementById('pDesc').value='';
+  tempFoto='';
+  document.getElementById('preview').style.display='none';
+  document.getElementById('fileImg').value='';
+
+  render();
+  alert('✅ PRODUTO PUBLICADO! Já aparece na loja! Rola pra cima pra ver!');
+  closeAdm();
+  window.scrollTo(0,0);
+}
+
+function apagar(i){
+  if(!confirm('Apagar '+prods[i].n+'?'))return;
+  prods.splice(i,1);
+  render();
+}
+
+function addCart(i){
+  cart.push(prods[i]);
+  render();
+  alert('✅ '+prods[i].n+' no carrinho!');
+}
+
+function openAdm(){document.getElementById('mAdm').classList.add('show')}
+function closeAdm(){document.getElementById('mAdm').classList.remove('show')}
+
 render();
 </script></body></html>
