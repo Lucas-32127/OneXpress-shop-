@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OneXpress Shop - Produtos Diversos Luanda</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f5f5f7;color:#111;padding-bottom:90px}
+.top{background:#111;color:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
+.logo{font-weight:900;font-size:20px}.logo b{color:#25D366}
+.badge{background:#ff3b30;color:#fff;border-radius:20px;padding:2px 7px;font-size:11px;font-weight:900}
+.search{margin:10px;background:#fff;border-radius:12px;padding:10px;display:flex;gap:8px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.search input{flex:1;border:0;outline:0;font-size:14px}
+.cats{display:flex;gap:8px;padding:0 10px;overflow-x:auto}
+.cat{background:#fff;border:1px solid #e5e5e5;padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;white-space:nowrap;cursor:pointer}
+.cat.on{background:#111;color:#fff}
+.banner{margin:10px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:14px;padding:14px;color:#fff;display:flex;justify-content:space-between}
+.prodGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}
+.prod{background:#fff;border-radius:12px;padding:8px;box-shadow:0 2px 8px rgba(0,0,0,.05);cursor:pointer}
+.prod img{width:100%;height:110px;object-fit:cover;border-radius:8px;background:#f2f2f2}
+.prod b{font-size:12px;display:block;margin-top:4px}
+.prod small{font-size:10px;color:#888}
+.price{color:#25D366;font-weight:900;font-size:13px}
+.add{width:100%;background:#111;color:#fff;border:0;padding:8px;border-radius:8px;font-weight:800;font-size:11px;margin-top:4px}
+.cart{position:fixed;bottom:70px;left:8px;right:8px;background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.2);padding:12px;display:none;z-index:30;max-height:70vh;overflow:auto}
+.cart.show{display:block}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0;z-index:40}
+.bottom div{text-align:center;font-size:9px;color:#888;flex:1;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;align-items:center;justify-content:center;padding:12px}
+.modal.show{display:flex}
+.sheet{background:#fff;border-radius:16px;width:100%;max-width:420px;max-height:90vh;overflow:auto;padding:16px}
+.sheet input,.sheet select,.sheet textarea{width:100%;background:#f5f5f7;border:1px solid #e5e5e5;padding:10px;border-radius:8px;margin:5px 0;font-size:13px}
+.sheet button{width:100%;padding:12px;border-radius:10px;border:0;font-weight:900;margin-top:6px}
+.payOpt{border:2px solid #e5e5e5;border-radius:10px;padding:10px;margin:5px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.payOpt.on{border-color:#25D366;background:#f0fff4}
+</style></head><body>
+<div class="top"><div class="logo"><b>One</b>Xpress <b>Shop</b><div style="font-size:8px;color:#25D366">PRODUTOS DIVERSOS LUANDA</div></div><div style="display:flex;gap:10px;align-items:center"><div style="position:relative" onclick="togCart()">🛒<span class="badge" id="cartNum">0</span></div><div>📞 925356739</div></div></div>
+<div class="search"><span>🔍</span><input id="searchIn" placeholder="O que queres comprar? Ex: telefone, arroz, tenis..." oninput="filterProd()"><span onclick="filterProd()">Buscar</span></div>
+<div class="cats"><div class="cat on" onclick="setCat(this,'')">Tudo</div><div class="cat" onclick="setCat(this,'Eletronicos')">📱 Eletronicos</div><div class="cat" onclick="setCat(this,'Roupas')">👕 Roupas</div><div class="cat" onclick="setCat(this,'Alimentos')">🍚 Alimentos</div><div class="cat" onclick="setCat(this,'Casa')">🏠 Casa</div><div class="cat" onclick="setCat(this,'Beleza')">💅 Beleza</div></div>
+<div class="banner"><div><h3 style="font-size:15px">ENTREGA RAPIDA<br>EM LUANDA 24H</h3><small style="font-size:10px">Multicaixa Express + Paga na Entrega</small><br><div style="margin-top:6px;font-size:10px">✅ Frete 1.500 Kz ✅ WhatsApp 925356739</div></div><div style="text-align:center"><div style="font-size:38px">🛵</div><div style="background:#fff;color:#25D366;padding:3px 6px;border-radius:6px;font-size:9px;font-weight:900">OneXpress</div></div></div>
+<div class="prodGrid" id="grid"></div>
+<div class="cart" id="cartBox"><div style="display:flex;justify-content:space-between;font-weight:900"><span>CARRINHO <span id="cCart">0</span> itens</span><span style="color:#ff3b30" onclick="togCart()">X FECHAR</span></div><div id="cartList" style="margin:8px 0"></div><div style="background:#f5f5f7;border-radius:8px;padding:8px"><div style="display:flex;justify-content:space-between;font-size:12px"><span>Subtotal:</span><b id="subT">0 Kz</b></div><div style="display:flex;justify-content:space-between;font-size:12px"><span>Entrega:</span><b>1.500 Kz</b></div><div style="display:flex;justify-content:space-between;font-weight:900"><span>Total:</span><b id="totT" style="color:#25D366">0 Kz</b></div></div><button style="width:100%;background:#25D366;color:#fff;border:0;padding:12px;border-radius:10px;font-weight:900;margin-top:8px" onclick="openM('checkout')">FINALIZAR NO WHATSAPP</button></div>
+<div class="bottom"><div onclick="scrollToTop()">🏠<br>Inicio</div><div onclick="setCat(null,'Eletronicos')">📱<br>Eletronicos</div><div onclick="togCart()">🛒<br>Carrinho <span id="bCart" style="background:#25D366;color:#fff;border-radius:10px;padding:1px 5px">0</span></div><div onclick="openM('pedidos')">📦<br>Pedidos</div><div onclick="openM('perfil')">👤<br>Perfil</div></div>
+<div id="mCheckout" class="modal"><div class="sheet"><h3 style="text-align:center">FINALIZAR PEDIDO</h3>
+<input id="cliNome" placeholder="Teu nome">
+<input id="cliTel" placeholder="Teu WhatsApp ex: 925356739" value="925">
+<textarea id="cliEnd" placeholder="Endereço entrega ex: Viana, Rua..."></textarea>
+<div style="margin:8px 0"><b style="font-size:12px">DATA ENTREGA - CALENDÁRIO:</b><input type="date" id="cliData"></div>
+<div style="margin:8px 0"><b style="font-size:12px">FORMA PAGAMENTO - 1ª OPÇÃO:</b>
+<div class="payOpt on" id="pay1" onclick="setPay('Multicaixa Express')"><span>💳 Multicaixa Express</span><span>✅</span></div>
+<div class="payOpt" id="pay2" onclick="setPay('Paga na Entrega')"><span>💰 Paga na Entrega</span><span>○</span></div>
+<div class="payOpt" id="pay3" onclick="setPay('Transferencia BAI/BFA')"><span>🏦 Transferência BAI/BFA</span><span>○</span></div>
+</div>
+<input id="cliPayTel" placeholder="Teu numero MCX se escolher Multicaixa">
+<div style="background:#f5f5f7;padding:8px;border-radius:8px;font-size:11px;margin:6px 0"><div>Subtotal: <b id="chkSub">0 Kz</b></div><div>Entrega: <b>1.500 Kz</b></div><div>Total: <b id="chkTot" style="color:#25D366">0 Kz</b></div></div>
+<button style="background:#25D366;color:#fff" onclick="enviarZap()">📲 ENVIAR PEDIDO NO WHATSAPP</button>
+<button style="background:#eee;color:#111" onclick="closeM()">FECHAR</button>
+</div></div>
+<div id="mPedidos" class="modal"><div class="sheet"><h3 style="text-align:center">MEUS PEDIDOS</h3><div id="pedList"></div><button style="background:#eee;color:#111;margin-top:10px" onclick="closeM()">FECHAR</button></div></div>
+<div id="mPerfil" class="modal"><div class="sheet"><h3 style="text-align:center">PERFIL OneXpress</h3><div style="background:#f5f5f7;padding:10px;border-radius:10px"><b>OneXpress Shop Luanda</b><br><small>Entregas rápidas - 925356739</small><br><small>Multicaixa Express + Paga na Entrega</small></div><div style="margin-top:10px"><b>Contacto Loja:</b><br>WhatsApp: 925356739<br>Luanda - Entrega 24h</div><button style="background:#eee;color:#111;margin-top:10px" onclick="closeM()">FECHAR</button></div></div>
+<script>
+var prods=[
+{a:'iPhone 13 128GB',cat:'Eletronicos',preco:450000,img:'📱',desc:'Novo selado'},
+{a:'Fone Bluetooth',cat:'Eletronicos',preco:8500,img:'🎧',desc:'Bass forte'},
+{a:'Carregador Rapido',cat:'Eletronicos',preco:5000,img:'🔌',desc:'Tipo C 20W'},
+{a:'Smart Watch',cat:'Eletronicos',preco:15000,img:'⌚',desc:'Prova dagua'},
+{a:'Tenis Nike Air',cat:'Roupas',preco:28000,img:'👟',desc:'Tam 40-44'},
+{a:'Camisa Polo',cat:'Roupas',preco:6500,img:'👕',desc:'Algodao premium'},
+{a:'Calça Jeans',cat:'Roupas',preco:12000,img:'👖',desc:'Skinny'},
+{a:'Mochila Escolar',cat:'Roupas',preco:9000,img:'🎒',desc:'Resistente'},
+{a:'Arroz 25kg',cat:'Alimentos',preco:18000,img:'🍚',desc:'Tio Lucas'},
+{a:'Oleo Fula 5L',cat:'Alimentos',preco:8500,img:'🫒',desc:'Original'},
+{a:'Cesta Basica',cat:'Alimentos',preco:35000,img:'🧺',desc:'Completa familia'},
+{a:'Gasosa 12x',cat:'Alimentos',preco:6000,img:'🥤',desc:'Blue/Coca'},
+{a:'Panela Pressao',cat:'Casa',preco:15000,img:'🍳',desc:'5L antiaderente'},
+{a:'Liquidificador',cat:'Casa',preco:18000,img:'🥤',desc:'3 velocidades'},
+{a:'Lençol Casal',cat:'Casa',preco:8000,img:'🛏️',desc:'100% algodao'},
+{a:'Balde Plastico',cat:'Casa',preco:2500,img:'🪣',desc:'100L'},
+{a:'Perfume Importado',cat:'Beleza',preco:12000,img:'💅',desc:'100ml'},
+{a:'Creme Nivea',cat:'Beleza',preco:3500,img:'🧴',desc:'400ml'},
+{a:'Kit Maquiagem',cat:'Beleza',preco:9500,img:'💄',desc:'12 cores'},
+{a:'Shampoo 1L',cat:'Beleza',preco:4500,img:'🧴',desc:'Anti queda'},
+];
+var cart=[], catSel='', searchSel='', paySel='Multicaixa Express', pedidos=[];
+function load(){try{cart=JSON.parse(localStorage.getItem('ox_cart')||'[]');}catch(e){} try{pedidos=JSON.parse(localStorage.getItem('ox_ped')||'[]');}catch(e){}}
+function save(){localStorage.setItem('ox_cart',JSON.stringify(cart)); localStorage.setItem('ox_ped',JSON.stringify(pedidos));}
+function init(){load(); renderProd(); renderCart(); var d=document.getElementById('cliData'); if(d) d.valueAsDate=new Date();}
+function renderProd(){
+ var grid=document.getElementById('grid');
+ var filtered=prods.filter(function(p){
+  var okCat=!catSel||p.cat==catSel;
+  var okSearch=!searchSel||p.a.toLowerCase().includes(searchSel.toLowerCase())||p.desc.toLowerCase().includes(searchSel.toLowerCase());
+  return okCat&&okSearch;
+ });
+ var h=''; for(var i=0;i<filtered.length;i++){var p=filtered[i]; h+='<div class="prod"><div style="font-size:50px;text-align:center;background:#f5f5f7;border-radius:8px;padding:10px">'+p.img+'</div><b>'+p.a+'</b><small>'+p.desc+'</small><div class="price">'+p.preco.toLocaleString()+' Kz</div><button class="add" onclick="addCart(\''+p.a.replace(/\'/g,"\\'")+ '\','+p.preco+')">+ CARRINHO</button></div>';}
+ grid.innerHTML=h||'<div style="grid-column:1/3;text-align:center;padding:20px;color:#888">Nenhum produto encontrado</div>';
+}
+function setCat(el,cat){document.querySelectorAll('.cat').forEach(function(c){c.classList.remove('on');}); if(el) el.classList.add('on'); catSel=cat; renderProd();}
+function filterProd(){searchSel=document.getElementById('searchIn').value; renderProd();}
+function addCart(nome,preco){
+ var idx=-1; for(var i=0;i<cart.length;i++) if(cart[i].nome==nome) idx=i;
+ if(idx>=0) cart[idx].qtd++; else cart.push({nome:nome,preco:preco,qtd:1});
+ save(); renderCart(); togCart(true);
+}
+function renderCart(){
+ var total=0, count=0; for(var i=0;i<cart.length;i++){total+=cart[i].preco*cart[i].qtd; count+=cart[i].qtd;}
+ document.getElementById('cartNum').innerText=count;
+ document.getElementById('bCart').innerText=count;
+ document.getElementById('cCart').innerText=count;
+ document.getElementById('subT').innerText=total.toLocaleString()+' Kz';
+ document.getElementById('totT').innerText=(total+1500).toLocaleString()+' Kz';
+ document.getElementById('chkSub').innerText=total.toLocaleString()+' Kz';
+ document.getElementById('chkTot').innerText=(total+1500).toLocaleString()+' Kz';
+ var h=''; for(var i=0;i<cart.length;i++){var it=cart[i]; h+='<div style="display:flex;justify-content:space-between;background:#f5f5f7;padding:8px;border-radius:8px;margin-bottom:5px;font-size:12px"><div><b>'+it.nome+'</b><br><small>'+it.preco.toLocaleString()+' Kz x '+it.qtd+'</small></div><div style="display:flex;gap:6px;align-items:center"><button onclick="chgQtd('+i+',-1)" style="background:#eee;border:0;padding:4px 8px;border-radius:6px">-</button><b>'+it.qtd+'</b><button onclick="chgQtd('+i+',1)" style="background:#111;color:#fff;border:0;padding:4px 8px;border-radius:6px">+</button><span style="color:#ff3b30;margin-left:6px" onclick="remItem('+i+')">🗑️</span></div></div>';}
+ document.getElementById('cartList').innerHTML=h||'<div style="text-align:center;color:#888;padding:10px">Carrinho vazio</div>';
+ renderPed();
+}
+function chgQtd(i,d){cart[i].qtd+=d; if(cart[i].qtd<=0) cart.splice(i,1); save(); renderCart();}
+function remItem(i){cart.splice(i,1); save(); renderCart();}
+function togCart(forceOpen){var c=document.getElementById('cartBox'); if(forceOpen){c.classList.add('show'); return;} c.classList.toggle('show');}
+function setPay(p){paySel=p; document.querySelectorAll('.payOpt').forEach(function(e){e.classList.remove('on'); e.querySelector('span:last-child').innerText='○';}); var id=p=='Multicaixa Express'?'pay1':p=='Paga na Entrega'?'pay2':'pay3'; var el=document.getElementById(id); if(el){el.classList.add('on'); el.querySelector('span:last-child').innerText='✅';}}
+function openM(t){closeM(); var m=document.getElementById('m'+t.charAt(0).toUpperCase()+t.slice(1)); if(m) m.classList.add('show');}
+function closeM(){document.querySelectorAll('.modal').forEach(function(m){m.classList.remove('show');});}
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
+function enviarZap(){
+ var nome=document.getElementById('cliNome').value, tel=document.getElementById('cliTel').value, end=document.getElementById('cliEnd').value, data=document.getElementById('cliData').value, payTel=document.getElementById('cliPayTel').value;
+ if(!nome||!tel||!end){alert('Preencha nome, telefone e endereço'); return;}
+ if(cart.length==0){alert('Carrinho vazio'); return;}
+ var total=0; for(var i=0;i<cart.length;i++) total+=cart[i].preco*cart[i].qtd;
+ var lista=''; for(var i=0;i<cart.length;i++) lista+= '• '+cart[i].nome+' x'+cart[i].qtd+' - '+(cart[i].preco*cart[i].qtd).toLocaleString()+' Kz\n';
+ var msg='🛒 *NOVO PEDIDO OneXpress Shop*\n\n👤 Cliente: '+nome+'\n📞 Tel: '+tel+'\n🏠 End: '+end+'\n📅 Data Entrega: '+data+'\n💳 Pagamento: '+paySel+(payTel?' ('+payTel+')':'')+'\n\n📦 *PRODUTOS:*\n'+lista+'\n💰 Subtotal: '+total.toLocaleString()+' Kz\n🛵 Entrega: 1.500 Kz\n💵 *TOTAL: '+(total+1500).toLocaleString()+' Kz*\n\n✅ Confirma meu pedido?';
+ var numero='244925356739';
+ var url='https://wa.me/'+numero+'?text='+encodeURIComponent(msg);
+ pedidos.unshift({data:new Date().toLocaleString(),total:total+1500,prod:cart.length,cliente:nome});
+ save();
+ window.open(url,'_blank');
+ alert('Pedido enviado pro WhatsApp 925356739! ✅');
+ cart=[]; save(); renderCart(); closeM(); togCart(false);
+}
+function renderPed(){var el=document.getElementById('pedList'); if(!el) return; if(pedidos.length==0){el.innerHTML='<div style="text-align:center;color:#888;padding:12px">Nenhum pedido ainda</div>'; return;} var h=''; for(var i=0;i<Math.min(pedidos.length,10);i++){var p=pedidos[i]; h+='<div style="background:#f5f5f7;padding:8px;border-radius:8px;margin-bottom:5px;font-size:11px;display:flex;justify-content:space-between"><div><b>Pedido #'+(1000+i)+'</b><br><small>'+p.data+'</small><br><small>'+p.prod+' produtos</small></div><b style="color:#25D366">'+p.total.toLocaleString()+' Kz</b></div>';} el.innerHTML=h;}
+init();
+</script>
+</body></html>
