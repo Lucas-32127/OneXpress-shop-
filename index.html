@@ -1,121 +1,286 @@
-<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OneXpress Shop - 9 Produtos Reais</title>
+<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OneXpress Shop - Oficial 9 Produtos</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f6f7f9;padding-bottom:90px}
-.top{background:#000;color:#fff;padding:14px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:100}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}.prod{background:#fff;border-radius:16px;padding:10px;box-shadow:0 4px 12px rgba(0,0,0,.06);position:relative}
-.img{width:100%;height:150px;background:#f0f0f0;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}.img img{width:100%;height:100%;object-fit:cover}
-.price{font-weight:900;font-size:16px;color:#25D366}.add{width:100%;background:#111;color:#fff;border:0;padding:11px;border-radius:10px;font-weight:800;margin-top:8px}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:10px 0;z-index:80}.bottom div{text-align:center;font-size:11px;flex:1;font-weight:800}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center;padding:12px}.modal.show{display:flex}.sheet{background:#fff;border-radius:16px;width:100%;max-width:400px;max-height:90vh;overflow:auto;padding:16px}
-.inp{width:100%;background:#f5f6f7;border:1px solid #ddd;padding:12px;border-radius:10px;margin:6px 0}.btn{width:100%;padding:13px;border-radius:10px;border:0;font-weight:900;margin-top:8px}.btnP{background:#111;color:#fff}.btnG{background:#25D366;color:#fff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f6f7f9;padding-bottom:85px}
+.top{background:#000;color:#fff;padding:14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.badge{background:#ff3b30;color:#fff;border-radius:10px;padding:2px 6px;font-size:10px;position:absolute;top:-8px;right:-8px}
+.hero{margin:12px;background:linear-gradient(135deg,#000,#25D366);border-radius:16px;padding:14px;color:#fff;display:flex;justify-content:space-between;align-items:center}
+.search{margin:12px;background:#fff;border-radius:14px;padding:4px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.05)}.search input{flex:1;border:0;outline:0;padding:11px 0;font-size:14px}
+.cats{display:flex;gap:8px;padding:0 12px;overflow-x:auto}.cat{background:#fff;border:1px solid #eee;padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;white-space:nowrap;cursor:pointer}.cat.on{background:#111;color:#fff}
+.stats{display:flex;gap:8px;padding:8px 12px;overflow-x:auto}.st{background:#fff;border-radius:12px;padding:10px 12px;min-width:100px;border:1px solid #eee}.st b{font-size:16px;display:block}.st small{font-size:10px;color:#888;font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}.prod{background:#fff;border-radius:16px;padding:10px;box-shadow:0 4px 12px rgba(0,0,0,.06);position:relative}.prod.im{width:100%;height:150px;background:#f0f0f0;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}.prod.im img{width:100%;height:100%;object-fit:cover}
+.price{font-weight:900;font-size:15px;color:#111}.price span{color:#25D366}.old{text-decoration:line-through;color:#999;font-size:11px;margin-left:4px}.off{position:absolute;top:8px;left:8px;background:#ff3b30;color:#fff;font-size:9px;font-weight:900;padding:4px 7px;border-radius:6px;z-index:2}
+.add{width:100%;background:#111;color:#fff;border:0;padding:10px;border-radius:10px;font-weight:800;font-size:12px;margin-top:6px}
+.cart{position:fixed;bottom:75px;left:10px;right:10px;background:#fff;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.3);padding:16px;display:none;max-height:72vh;overflow:auto;z-index:90;border:1px solid #eee}.cart.show{display:block}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0 10px;z-index:80}.bottom div{text-align:center;font-size:10px;flex:1;font-weight:700;color:#888;cursor:pointer}.bottom div.on{color:#111}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:flex-end;justify-content:center}.modal.show{display:flex}.sheet{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:480px;max-height:94vh;overflow:auto}.head{padding:16px;position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;font-weight:900}.body{padding:16px}
+.inp{width:100%;background:#f5f6f7;border:1.5px solid #eee;padding:13px;border-radius:12px;margin:6px 0;font-size:14px;outline:0}.btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:900;font-size:14px;margin-top:8px;cursor:pointer}.btnP{background:#111;color:#fff}.btnG{background:#25D366;color:#fff}.btnL{background:#f5f6f7;color:#111}
+.tabs{display:flex;gap:6px;background:#f5f6f7;padding:4px;border-radius:12px;margin:12px 0}.tab{flex:1;padding:10px;text-align:center;border-radius:9px;font-weight:800;font-size:11px;cursor:pointer}.tab.on{background:#111;color:#fff}
+.up{border:2px dashed #25D366;background:#f0fff4;border-radius:14px;padding:20px;text-align:center;margin:10px 0;cursor:pointer}
 </style></head><body>
-<div class="top"><b>One<span style="color:#25D366">Xpress</span> Shop</b><div>🛒 <b id="cartNum">0</b></div></div>
-<div style="margin:12px;background:linear-gradient(135deg,#000,#25D366);border-radius:14px;padding:14px;color:#fff"><b>9 PRODUTOS REAIS</b><br><small>Timberland 10.000 Kz | Sabrinas 3.000 Kz | Frete 1500 Kz | 925356739</small></div>
+<div class="top"><div><b>One<span style="color:#25D366">Xpress</span> Shop</b><div style="font-size:9px;opacity:.7">9 PRODUTOS REAIS • 925356739</div></div><div style="display:flex;gap:10px;align-items:center"><div style="background:#25D366;color:#000;padding:4px 8px;border-radius:20px;font-size:9px;font-weight:900">LUANDA 24H</div><div onclick="toggleCart()" style="position:relative;font-size:22px;cursor:pointer">🛒<span id="cartNum" class="badge">0</span></div></div></div>
+<div class="hero"><div><div style="background:#25D366;color:#000;display:inline-block;padding:3px 8px;border-radius:20px;font-size:9px;font-weight:900">🔥 9 MODELOS COM FOTO</div><div style="font-weight:900;font-size:14px;margin-top:4px;line-height:1.2">TIMBERLAND 10.000 KZ<br>SABRINAS 3.000 KZ</div><div style="font-size:10px;opacity:.8;margin-top:4px">Frete 1500 Kz • Paga na Entrega • Multicaixa</div></div><div style="font-size:36px">🥾👠</div></div>
+<div class="search">🔍<input id="busca" placeholder="Buscar KSM7403, Timberland, Sabrina..." oninput="render()"><span style="background:#111;color:#fff;padding:6px 10px;border-radius:8px;font-size:11px;font-weight:800">BUSCAR</span></div>
+<div class="cats"><div class="cat on" id="catAll" onclick="setCat(this,'')">Tudo (9)</div><div class="cat" onclick="setCat(this,'Timberland')">🥾 Timberland (3)</div><div class="cat" onclick="setCat(this,'Sabrinas')">👠 Sabrinas (4)</div><div class="cat" onclick="setCat(this,'Infantil')">👧 Infantil (2)</div></div>
+<div class="stats"><div class="st"><small>PRODUTOS</small><b id="stProd">9</b><small style="color:#25D366">● Ao vivo</small></div><div class="st"><small>PEDIDOS</small><b id="stPed">0</b><small>📦 Total</small></div><div class="st"><small>VENDAS</small><b id="stVenda" style="color:#25D366">0 Kz</b></div><div class="st"><small>CLIENTES</small><b>Luanda</b><small>📍 24h</small></div></div>
 <div class="grid" id="grid"></div>
-<div class="bottom"><div onclick="window.scrollTo(0,0)">🏠<br>Inicio</div><div onclick="alert('Carrinho: '+cart.length+' itens')">🛒<br>Carrinho <b id="bCart">0</b></div><div onclick="openAdm()">⚙️<br>ADM</div></div>
+<div class="cart" id="cartBox"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b>🛒 Meu Carrinho <span id="cCart">0</span></b><span onclick="toggleCart()" style="background:#f5f5f7;padding:6px 12px;border-radius:20px;font-weight:900;cursor:pointer">✕</span></div><div id="cartList"></div><div style="background:#111;color:#fff;padding:12px;border-radius:12px;margin-top:10px"><div style="display:flex;justify-content:space-between;font-size:12px;opacity:.7"><span>Subtotal</span><span id="subT">0 Kz</span></div><div style="display:flex;justify-content:space-between;font-size:12px;opacity:.7;margin:4px 0"><span>Entrega Luanda</span><span>1500 Kz</span></div><div style="display:flex;justify-content:space-between;font-size:16px;font-weight:900;margin-top:8px;border-top:1px solid #333;padding-top:8px"><span>Total</span><span id="totT" style="color:#25D366">0 Kz</span></div></div><button class="btn btnG" onclick="openM('checkout')">📲 FINALIZAR NO WHATSAPP 925356739</button><button class="btn btnL" onclick="toggleCart()">Continuar comprando</button></div>
+<div class="bottom"><div class="on" onclick="window.scrollTo(0,0)">🏠<br>Inicio</div><div onclick="toggleCart()">🛒<br>Carrinho <b id="bCart">0</b></div><div onclick="openM('pedidos')">📦<br>Pedidos</div><div onclick="openM('adm')">⚙️<br>ADM Pro</div></div>
 
-<div id="mAdm" class="modal"><div class="sheet">
-<h3>➕ PUBLICAR PRODUTO</h3>
-<p style="font-size:11px;color:#666;margin:6px 0">Carrega foto da galeria, preenche e clica PUBLICAR - aparece na hora!</p>
-<input class="inp" id="pNome" placeholder="Nome: Ex: Timberland Azul 42">
-<input class="inp" id="pPreco" type="number" placeholder="Preço: 10000">
-<input class="inp" id="pDesc" placeholder="Descrição: Tamanhos 39-44">
-<div style="border:2px dashed #25D366;background:#f0fff4;border-radius:12px;padding:20px;text-align:center;margin:10px 0" onclick="document.getElementById('fileImg').click()">
-<div style="font-size:30px">📸</div><b>CLICAR PARA CARREGAR FOTO</b><br><small>Galeria do telefone</small>
+<div id="mCheckout" class="modal"><div class="sheet"><div class="head"><span>Finalizar Pedido</span><span onclick="closeM()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px;cursor:pointer">✕</span></div><div class="body"><input class="inp" id="nome" placeholder="Seu nome completo *"><input class="inp" id="tel" placeholder="WhatsApp 925... *" value="925"><textarea class="inp" id="end" placeholder="Bairro, Rua, Casa, Ponto referência *"></textarea><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="inp" type="date" id="dataEnt"><select class="inp" id="paySel"><option>💳 Multicaixa Express</option><option>💰 Paga na Entrega</option><option>🏦 Transferência BAI</option></select></div><div style="background:#f0fff4;border:1px solid #25D366;border-radius:12px;padding:12px;margin-top:10px"><div style="font-size:11px;font-weight:800">TOTAL A PAGAR COM ENTREGA</div><b id="chkTot" style="color:#25D366;font-size:22px">0 Kz</b><div style="font-size:10px;color:#666">✓ Entrega 24h Luanda • ✓ Frete 1500 Kz incluso</div></div><button class="btn btnG" onclick="enviarZap()">📲 ENVIAR PEDIDO PARA 925356739</button><button class="btn btnL" onclick="closeM()">Voltar</button></div></div></div>
+<div id="mPedidos" class="modal"><div class="sheet"><div class="head"><span>📦 Meus Pedidos</span><span onclick="closeM()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px">✕</span></div><div class="body" id="pedList"></div></div></div>
+
+<div id="mAdm" class="modal"><div class="sheet" style="max-width:520px"><div class="head"><span>⚙️ PAINEL ADM PRO - 9 PRODUTOS REAIS</span><span onclick="closeM()" style="background:#ff3b30;color:#fff;padding:6px 10px;border-radius:20px;cursor:pointer">✕ FECHAR</span></div><div class="body">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div style="background:#111;color:#fff;border-radius:12px;padding:12px"><small style="opacity:.6">VENDAS TOTAIS</small><b id="kVenda" style="display:block;font-size:18px;color:#25D366">0 Kz</b><small id="kPed" style="opacity:.7">0 pedidos</small></div><div style="background:#f5f6f7;border-radius:12px;padding:12px"><small>PRODUTOS AO VIVO</small><b id="kProd" style="display:block;font-size:20px">9</b><small style="color:#25D366">● Loja aberta</small></div></div>
+<div class="tabs"><div class="tab on" onclick="setTab(this,'prod')">📦 PRODUTOS</div><div class="tab" onclick="setTab(this,'ped')">📋 PEDIDOS</div><div class="tab" onclick="setTab(this,'conf')">⚙️ LOJA</div></div>
+
+<div id="tabProd">
+<div style="background:#f5f6f7;border-radius:14px;padding:14px">
+<b style="font-size:13px">➕ ADICIONAR NOVO PRODUTO COM FOTO (FUNCIONA 100%)</b>
+<input class="inp" id="pNome" placeholder="Nome ex: Timberland Azul Tam 42">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="inp" id="pPreco" type="number" placeholder="Preço: 10000"><input class="inp" id="pPrecoAnt" type="number" placeholder="Preço antigo: 15000 (opcional)"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><select class="inp" id="pCat"><option value="Timberland">🥾 Timberland</option><option value="Sabrinas">👠 Sabrinas</option><option value="Infantil">👧 Infantil</option><option value="Calçados">👟 Calçados</option></select><input class="inp" id="pEstoque" type="number" placeholder="Estoque: 20"></div>
+<input class="inp" id="pDesc" placeholder="Descrição: Tam 39-44, Cores, Referência KSM...">
+<div class="up" id="upBox" onclick="document.getElementById('fileImg').click()">
+<div style="font-size:32px">📸</div><div style="font-weight:900;font-size:13px;margin:6px 0">TOCAR PARA CARREGAR FOTO DA GALERIA</div><div style="font-size:11px;color:#666">Funciona! Foto da câmera ou galeria</div>
 <input type="file" id="fileImg" accept="image/*" hidden>
-<img id="preview" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-top:10px;display:none">
+<img id="preview" style="width:100%;height:160px;object-fit:cover;border-radius:12px;margin-top:12px;display:none">
+<div id="fileName" style="font-size:11px;margin-top:8px;font-weight:700;color:#25D366"></div>
 </div>
-<button class="btn btnP" onclick="publicar()">💾 PUBLICAR AGORA NA LOJA</button>
-<div id="listaAdm" style="margin-top:12px"></div>
-<button class="btn" style="background:#eee" onclick="closeAdm()">FECHAR LOJA</button>
-</div></div>
+<button class="btn btnP" onclick="addProd()">💾 PUBLICAR NA LOJA AGORA - APARECE NA HORA!</button>
+<p style="font-size:10px;color:#888;margin-top:6px;text-align:center">Após publicar, feche e veja no topo da loja!</p>
+</div>
+<div id="admLista" style="margin-top:14px"></div>
+</div>
+
+<div id="tabPed" style="display:none"><div id="admPedidos"></div><button class="btn btnL" onclick="if(confirm('Limpar todos pedidos?')){pedidos=[];save();render();}">🗑️ Limpar histórico de pedidos</button></div>
+
+<div id="tabConf" style="display:none"><div style="background:#f5f6f7;border-radius:14px;padding:14px"><b>⚙️ CONFIGURAÇÕES DA LOJA</b><input class="inp" id="cNome" value="OneXpress Shop" placeholder="Nome da loja"><input class="inp" id="cZap" value="244925356739" placeholder="WhatsApp 244..."><input class="inp" id="cFrete" value="1500" type="number" placeholder="Frete"><textarea class="inp" id="cMsg">Olá! Pedido OneXpress Shop</textarea><button class="btn btnP" onclick="saveConf()">💾 SALVAR CONFIGURAÇÕES</button><div style="margin-top:12px;background:#fff;border-radius:10px;padding:10px;font-size:11px"><b>🔗 Link da sua loja:</b><br>lucas-32127.github.io/OneXpress-shop-/<br><br><b>📲 Compartilhe:</b><br>• Status WhatsApp<br>• Facebook<br>• Instagram bio</div></div></div>
+
+</div></div></div>
 
 <script>
-var prods = [
-{n:"Sabrina KSM7403 Fashion",p:3000,d:"Tam 36-42 • 4 cores • 40PRS",img:"prod_1.jpg"},
-{n:"Sabrina KSM7463 Laço",p:3000,d:"Tam 36-42 • 4 cores",img:"prod_2.jpg"},
-{n:"Sabrina KSM7472 Luxo",p:3000,d:"Tam 36-42 • Pedraria",img:"prod_3.jpg"},
-{n:"Sabrina KSM7548 Lisa",p:3000,d:"Tam 36-42 • Simples",img:"prod_4.jpg"},
-{n:"Infantil KGM7124",p:3000,d:"Tam 25-30 • Menina",img:"prod_5.jpg"},
-{n:"Infantil KGM7128",p:3000,d:"Tam 25-30 • Bico branco",img:"prod_6.jpg"},
-{n:"Timberland KA16700C",p:10000,d:"Tam 39-44 • 24PRS",img:"prod_7.jpg"},
-{n:"Timberland Premium Azul",p:10000,d:"Tam 39-44 • Original",img:"prod_8.jpg"},
-{n:"Timberland KA16807A",p:10000,d:"Tam 39-44 • 24PRS",img:"prod_9.jpg"}
+var defaultProds=[
+{n:"Sabrina KSM7403 Fashion",p:3000,pa:4500,cat:"Sabrinas",d:"Tam 36-42 • Preto, Vinho, Branco, Nude • 40PRS",img:"prod_1.jpg",est:40},
+{n:"Sabrina KSM7463 Laço",p:3000,pa:4500,cat:"Sabrinas",d:"Tam 36-42 • Preto, Vermelho, Branco, Mostarda",img:"prod_2.jpg",est:40},
+{n:"Sabrina KSM7472 Luxo DK",p:3000,pa:5000,cat:"Sabrinas",d:"Tam 36-42 • Verde, Preto, Marrom, Azul • Pedraria",img:"prod_3.jpg",est:40},
+{n:"Sabrina KSM7548 Lisa",p:3000,pa:4000,cat:"Sabrinas",d:"Tam 36-42 • Preto, Prata, Marrom, Vermelho",img:"prod_4.jpg",est:40},
+{n:"Infantil KGM7124",p:3000,pa:4000,cat:"Infantil",d:"Tam 25-30 • Preto, Branco, Vermelho, Rosa",img:"prod_5.jpg",est:40},
+{n:"Infantil KGM7128",p:3000,pa:4000,cat:"Infantil",d:"Tam 25-30 • Bege, Rosa, Marrom, Preto",img:"prod_6.jpg",est:40},
+{n:"Timberland KA16700C",p:10000,pa:15000,cat:"Timberland",d:"Tam 39-44 • Azul, Preto, Azul/Marrom • 24PRS",img:"prod_7.jpg",est:24},
+{n:"Timberland Premium Azul",p:10000,pa:16000,cat:"Timberland",d:"Tam 39-44 • Azul marinho • Original",img:"prod_8.jpg",est:15},
+{n:"Timberland KA16807A",p:10000,pa:15000,cat:"Timberland",d:"Tam 39-44 • Preto, Azul, Branco • 24PRS",img:"prod_9.jpg",est:24}
 ];
-var cart = [];
-var tempFoto = "";
+
+// CARREGA DO LOCALSTORAGE SE EXISTIR, SENÃO USA DEFAULT
+var prods, cart, pedidos, conf;
+try{prods=JSON.parse(localStorage.getItem('ox_final_v11')||'null')||defaultProds}catch(e){prods=defaultProds}
+try{cart=JSON.parse(localStorage.getItem('ox_cart_v11')||'[]')}catch(e){cart=[]}
+try{pedidos=JSON.parse(localStorage.getItem('ox_ped_v11')||'[]')}catch(e){pedidos=[]}
+try{conf=JSON.parse(localStorage.getItem('ox_conf_v11')||'null')||{nome:"OneXpress Shop",zap:"244925356739",frete:1500}}catch(e){conf={nome:"OneXpress Shop",zap:"244925356739",frete:1500}}
+
+var tempImg='', catSel='', busca='';
 
 document.getElementById('fileImg').addEventListener('change', function(e){
-  var file = e.target.files[0];
-  if(!file) return;
-  var reader = new FileReader();
-  reader.onload = function(ev){
-    tempFoto = ev.target.result;
-    var pre = document.getElementById('preview');
-    pre.src = tempFoto;
-    pre.style.display = 'block';
+  var f=e.target.files[0]; if(!f) return;
+  document.getElementById('fileName').innerText='📁 '+f.name+' ('+(f.size/1024).toFixed(0)+' KB)';
+  var r=new FileReader();
+  r.onload=function(ev){
+    tempImg=ev.target.result;
+    var pre=document.getElementById('preview');
+    pre.src=tempImg; pre.style.display='block';
+    document.getElementById('upBox').style.borderColor='#25D366';
+    document.getElementById('upBox').style.background='#f0fff4';
   };
-  reader.readAsDataURL(file);
+  r.readAsDataURL(f);
 });
 
+function save(){
+  localStorage.setItem('ox_final_v11', JSON.stringify(prods));
+  localStorage.setItem('ox_cart_v11', JSON.stringify(cart));
+  localStorage.setItem('ox_ped_v11', JSON.stringify(pedidos));
+  localStorage.setItem('ox_conf_v11', JSON.stringify(conf));
+}
+
+function setCat(el,c){
+  document.querySelectorAll('.cat').forEach(x=>x.classList.remove('on'));
+  el.classList.add('on'); catSel=c; render();
+}
+
 function render(){
-  var g = document.getElementById('grid');
-  var html = "";
-  for(var i=0; i<prods.length; i++){
-    var p = prods[i];
-    var foto = p.img.startsWith('data:')? p.img : p.img;
-    // Se começa com data: é base64, se não é arquivo prod_x.jpg
-    var imgTag = foto.startsWith('data:')? '<img src="'+foto+'">' : '<img src="'+foto+'" onerror="this.parentElement.innerHTML=\'📦<br><small>'+p.img+'</small>\'">';
-    html += '<div class=prod><div class=img>'+imgTag+'</div><b style="font-size:12px">'+p.n+'</b><br><small style="font-size:10px;color:#777">'+p.d+'</small><div class=price>'+p.p.toLocaleString()+' Kz</div><button class=add onclick="addCart('+i+')">+ CARRINHO</button><button onclick="apagar('+i+')" style="width:100%;background:#ff3b3020;color:#ff3b30;border:0;padding:6px;border-radius:8px;margin-top:4px;font-size:10px">🗑️ Apagar</button></div>';
+  var g=document.getElementById('grid');
+  var q=(document.getElementById('busca').value||'').toLowerCase();
+  var filtrados=prods.filter(function(p){
+    var okCat=!catSel||p.cat==catSel;
+    var okBusca=!q||p.n.toLowerCase().includes(q)||p.d.toLowerCase().includes(q);
+    return okCat&&okBusca;
+  });
+
+  var html='';
+  for(var i=0;i<filtrados.length;i++){
+    var p=filtrados[i];
+    var idx=prods.indexOf(p);
+    var off=p.pa&&p.pa>p.p?Math.round((1-p.p/p.pa)*100):0;
+    var imgSrc=p.img;
+    var imgHtml='';
+    if(imgSrc.startsWith('data:')){
+      imgHtml='<img src="'+imgSrc+'" loading=lazy>';
+    }else{
+      imgHtml='<img src="'+imgSrc+'" loading=lazy onerror="this.parentElement.innerHTML=\'<div style=text-align:center;padding:20px><div style=font-size:40px>🥾</div><small style=font-size:9px>'+p.img+'</small><br><small style=color:#ff3b30>Foto não enviada pro GitHub ainda</small></div>\'">';
+    }
+    html+='<div class=prod>'+(off?'<div class=off>-'+off+'% OFF</div>':'')+'<div class=im>'+imgHtml+'</div><b style="font-size:12px;display:block;margin-top:6px;line-height:1.2">'+p.n+'</b><small style="font-size:10px;color:#777">'+p.d+'</small><div style="display:flex;align-items:center;gap:6px;margin-top:4px"><div class=price><span>'+p.p.toLocaleString()+' Kz</span></div>'+(p.pa?'<span class=old>'+p.pa.toLocaleString()+' Kz</span>':'')+'</div><small style="color:'+(p.est<5?'#ff3b30':'#25D366')+';font-size:10px">● '+p.est+' em estoque • '+p.cat+'</small><button class=add onclick="addCart('+idx+')">🛒 + CARRINHO</button></div>';
   }
-  g.innerHTML = html;
-  document.getElementById('cartNum').innerText = cart.length;
-  document.getElementById('bCart').innerText = cart.length;
-  // lista ADM
-  var la = document.getElementById('listaAdm');
-  var h2 = '<b>'+prods.length+' produtos na loja:</b>';
-  for(var i=0;i<prods.length;i++){h2+='<div style="background:#f5f5f7;padding:8px;border-radius:8px;margin:4px 0;font-size:11px;display:flex;justify-content:space-between"><span>'+prods[i].n+' - '+prods[i].p+' Kz</span><span style="color:red" onclick="apagar('+i+')">X</span></div>'}
-  la.innerHTML = h2;
-}
+  g.innerHTML=html||'<div style="grid-column:span 2;text-align:center;padding:30px;background:#fff;border-radius:16px">Nenhum produto encontrado<br><small>Tente outra busca</small></div>';
 
-function publicar(){
-  var nome = document.getElementById('pNome').value;
-  var preco = parseInt(document.getElementById('pPreco').value);
-  var desc = document.getElementById('pDesc').value;
-  if(!nome ||!preco){alert('⚠️ Coloca nome e preço!');return}
-  if(!tempFoto){alert('⚠️ Carrega uma foto! Clica no quadrado verde 📸');return}
+  // stats
+  var totV=0; for(var i=0;i<pedidos.length;i++) totV+=pedidos[i].total;
+  document.getElementById('stProd').innerText=prods.length;
+  document.getElementById('stPed').innerText=pedidos.length;
+  document.getElementById('stVenda').innerText=totV.toLocaleString()+' Kz';
+  document.getElementById('kProd').innerText=prods.length;
+  document.getElementById('kVenda').innerText=totV.toLocaleString()+' Kz';
+  document.getElementById('kPed').innerText=pedidos.length+' pedidos';
+  document.getElementById('catAll').innerText='Tudo ('+prods.length+')';
 
-  // ADICIONA NO INICIO
-  prods.unshift({n:nome, p:preco, d:desc, img:tempFoto});
-
-  // LIMPA FORM
-  document.getElementById('pNome').value='';
-  document.getElementById('pPreco').value='';
-  document.getElementById('pDesc').value='';
-  tempFoto='';
-  document.getElementById('preview').style.display='none';
-  document.getElementById('fileImg').value='';
-
-  render();
-  alert('✅ PRODUTO PUBLICADO! Já aparece na loja! Rola pra cima pra ver!');
-  closeAdm();
-  window.scrollTo(0,0);
-}
-
-function apagar(i){
-  if(!confirm('Apagar '+prods[i].n+'?'))return;
-  prods.splice(i,1);
-  render();
+  renderCart(); renderAdm(); renderAdmPed();
 }
 
 function addCart(i){
-  cart.push(prods[i]);
-  render();
-  alert('✅ '+prods[i].n+' no carrinho!');
+  var ja=null; for(var j=0;j<cart.length;j++) if(cart[j].idx==i) ja=cart[j];
+  if(ja) ja.q++; else cart.push({idx:i,n:prods[i].n,p:prods[i].p,q:1});
+  save(); renderCart(); toggleCart(true);
 }
 
-function openAdm(){document.getElementById('mAdm').classList.add('show')}
-function closeAdm(){document.getElementById('mAdm').classList.remove('show')}
+function renderCart(){
+  var t=0,c=0; var h='';
+  for(var i=0;i<cart.length;i++){
+    var it=cart[i]; t+=it.p*it.q; c+=it.q;
+    h+='<div style="display:flex;justify-content:space-between;align-items:center;background:#f9f9f9;padding:10px;border-radius:10px;margin-bottom:6px"><div><b style="font-size:13px">'+it.n+'</b><br><small>'+it.p.toLocaleString()+' Kz x '+it.q+' = '+(it.p*it.q).toLocaleString()+' Kz</small></div><div style="display:flex;align-items:center;gap:6px"><button onclick="chgCart('+i+',-1)" style="background:#eee;border:0;padding:6px 10px;border-radius:8px;font-weight:900">-</button><b>'+it.q+'</b><button onclick="chgCart('+i+',1)" style="background:#111;color:#fff;border:0;padding:6px 10px;border-radius:8px">+</button><span onclick="remCart('+i+')" style="color:#ff3b30;margin-left:6px;cursor:pointer">🗑️</span></div></div>';
+  }
+  document.getElementById('cartList').innerHTML=h||'<div style="text-align:center;padding:20px;color:#888">🛒 Carrinho vazio<br><small>Adicione Timberland ou Sabrinas</small></div>';
+  var frete=parseInt(conf.frete)||1500;
+  document.getElementById('subT').innerText=t.toLocaleString()+' Kz';
+  document.getElementById('totT').innerText=(t+frete).toLocaleString()+' Kz';
+  document.getElementById('chkTot').innerText=(t+frete).toLocaleString()+' Kz';
+  document.getElementById('cartNum').innerText=c;
+  document.getElementById('bCart').innerText=c;
+  document.getElementById('cCart').innerText=c;
+}
 
+function chgCart(i,d){cart[i].q+=d; if(cart[i].q<=0) cart.splice(i,1); save(); renderCart();}
+function remCart(i){cart.splice(i,1); save(); renderCart();}
+function toggleCart(force){
+  var c=document.getElementById('cartBox');
+  if(force){c.classList.add('show');return}
+  c.classList.toggle('show');
+}
+function openM(t){closeM();document.getElementById('m'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('show');}
+function closeM(){document.querySelectorAll('.modal').forEach(function(m){m.classList.remove('show')})}
+function setTab(el,tab){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
+  el.classList.add('on');
+  document.getElementById('tabProd').style.display=tab=='prod'?'block':'none';
+  document.getElementById('tabPed').style.display=tab=='ped'?'block':'none';
+  document.getElementById('tabConf').style.display=tab=='conf'?'block':'none';
+}
+
+function addProd(){
+  var n=document.getElementById('pNome').value.trim();
+  var p=parseInt(document.getElementById('pPreco').value);
+  var pa=parseInt(document.getElementById('pPrecoAnt').value)||0;
+  var cat=document.getElementById('pCat').value;
+  var d=document.getElementById('pDesc').value.trim();
+  var est=parseInt(document.getElementById('pEstoque').value)||10;
+
+  if(!n){alert('⚠️ Coloca o NOME do produto!');return}
+  if(!p){alert('⚠️ Coloca o PREÇO!');return}
+  if(!tempImg){
+    if(!confirm('⚠️ Sem foto! Publicar mesmo assim com emoji?'))return;
+  }
+
+  var novo={n:n,p:p,pa:pa,cat:cat,d:d||'Novo produto',img:tempImg||'',est:est};
+
+  prods.unshift(novo);
+  save();
+  render();
+
+  // LIMPA
+  document.getElementById('pNome').value='';
+  document.getElementById('pPreco').value='';
+  document.getElementById('pPrecoAnt').value='';
+  document.getElementById('pDesc').value='';
+  document.getElementById('pEstoque').value='';
+  tempImg='';
+  document.getElementById('preview').style.display='none';
+  document.getElementById('fileName').innerText='';
+  document.getElementById('fileImg').value='';
+  document.getElementById('upBox').style.borderColor='#25D366';
+  document.getElementById('upBox').style.background='#f0fff4';
+
+  alert('✅ PRODUTO PUBLICADO COM SUCESSO!\n\n'+n+'\n'+p.toLocaleString()+' Kz\n\nJá está no TOPO da loja! Feche o ADM e veja!');
+}
+
+function renderAdm(){
+  var el=document.getElementById('admLista');
+  if(!el) return;
+  var h='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><b style="font-size:12px">'+prods.length+' PRODUTOS AO VIVO</b><small style="background:#25D366;color:#fff;padding:3px 8px;border-radius:10px;font-weight:800">● AO VIVO</small></div>';
+  for(var i=0;i<prods.length;i++){
+    var p=prods[i];
+    var thumb=p.img.startsWith('data:')?'<img src="'+p.img+'" style="width:100%;height:100%;object-fit:cover">':'<img src="'+p.img+'" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.innerHTML=\'🥾\'">';
+    h+='<div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:10px;margin:6px 0;display:flex;gap:10px;align-items:center"><div style="width:56px;height:56px;background:#f5f5f7;border-radius:10px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center">'+thumb+'</div><div style="flex:1"><b style="font-size:12px">'+p.n+'</b><br><small style="color:#888">'+p.cat+' • Estoque: '+p.est+'</small><br><b style="color:#25D366;font-size:13px">'+p.p.toLocaleString()+' Kz</b>'+(p.pa?' <small style="text-decoration:line-through;color:#999">'+p.pa.toLocaleString()+'</small>':'')+'</div><button onclick="delProd('+i+')" style="background:#ff3b301a;color:#ff3b30;border:0;padding:8px 10px;border-radius:8px;font-weight:900">🗑️</button></div>';
+  }
+  el.innerHTML=h;
+}
+
+function delProd(i){
+  if(!confirm('Apagar '+prods[i].n+'?'))return;
+  prods.splice(i,1); save(); render();
+}
+
+function renderAdmPed(){
+  var el=document.getElementById('admPedidos');
+  var el2=document.getElementById('pedList');
+  if(pedidos.length==0){
+    var empty='<div style="text-align:center;padding:30px;color:#888">📦 Nenhum pedido ainda<br><small>Quando cliente finalizar no WhatsApp, aparece aqui</small></div>';
+    if(el) el.innerHTML=empty; if(el2) el2.innerHTML=empty; return;
+  }
+  var h='';
+  for(var i=0;i<pedidos.length;i++){
+    var p=pedidos[i];
+    h+='<div style="background:#f9f9f9;border:1px solid #eee;border-radius:12px;padding:12px;margin:8px 0"><div style="display:flex;justify-content:space-between"><b>#'+(1000+i)+'</b><small>'+p.data+'</small></div><div style="margin:6px 0;font-size:12px"><b>'+p.cliente+'</b> • '+p.tel+'<br><small>'+p.end+'</small></div><div style="font-size:11px;background:#fff;padding:8px;border-radius:8px;margin:6px 0;white-space:pre-line">'+p.lista+'</div><div style="display:flex;justify-content:space-between;font-weight:900"><span>Total</span><span style="color:#25D366">'+p.total.toLocaleString()+' Kz</span></div></div>';
+  }
+  if(el) el.innerHTML='<b>'+pedidos.length+' PEDIDOS RECEBIDOS</b>'+h;
+  if(el2) el2.innerHTML=h;
+}
+
+function enviarZap(){
+  var n=document.getElementById('nome').value.trim();
+  var t=document.getElementById('tel').value.trim();
+  var e=document.getElementById('end').value.trim();
+  var pay=document.getElementById('paySel').value;
+  if(!n||!t||!e){alert('⚠️ Preencha nome, WhatsApp e endereço');return}
+  if(cart.length==0){alert('🛒 Carrinho vazio! Adicione produtos');return}
+  var tot=0,lista='';
+  for(var i=0;i<cart.length;i++){tot+=cart[i].p*cart[i].q; lista+='• '+cart[i].n+' x'+cart[i].q+' - '+(cart[i].p*cart[i].q).toLocaleString()+' Kz\n'}
+  var frete=parseInt(conf.frete)||1500;
+  var msg='🛒 *NOVO PEDIDO - '+conf.nome+'*\n\n👤 Cliente: '+n+'\n📞 Tel: '+t+'\n🏠 End: '+e+'\n💳 Pag: '+pay+'\n\n📦 PRODUTOS:\n'+lista+'\n💰 Subtotal: '+tot.toLocaleString()+' Kz\n🛵 Entrega: '+frete.toLocaleString()+' Kz\n💵 *TOTAL: '+(tot+frete).toLocaleString()+' Kz*\n\n✅ Confirma entrega 24h Luanda?';
+  pedidos.unshift({data:new Date().toLocaleString(),cliente:n,tel:t,end:e,lista:lista,total:tot+frete});
+  save(); render();
+  window.open('https://wa.me/'+conf.zap+'?text='+encodeURIComponent(msg),'_blank');
+  cart=[]; save(); renderCart(); closeM();
+  alert('✅ Pedido enviado pro WhatsApp 925356739!');
+}
+
+function saveConf(){
+  conf.nome=document.getElementById('cNome').value||'OneXpress Shop';
+  conf.zap=(document.getElementById('cZap').value||'244925356739').replace(/\D/g,'');
+  conf.frete=parseInt(document.getElementById('cFrete').value)||1500;
+  save(); alert('✅ Configurações salvas!'); render();
+}
+
+// INIT
+document.getElementById('cNome').value=conf.nome;
+document.getElementById('cZap').value=conf.zap;
+document.getElementById('cFrete').value=conf.frete;
+var d=document.getElementById('dataEnt'); if(d) d.valueAsDate=new Date();
 render();
 </script></body></html>
