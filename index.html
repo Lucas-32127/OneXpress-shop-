@@ -1,215 +1,83 @@
-<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>OneXpress Shop | Loja Oficial</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OneXpress Shop - 9 Produtos</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',Arial}
-body{background:#f6f7f9;padding-bottom:80px}
-.top{background:#000;color:#fff;padding:14px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.top b{font-size:18px;letter-spacing:-.5px}.top b span{color:#25D366}.top.tel{font-size:10px;background:#25D366;padding:3px 8px;border-radius:20px;color:#000;font-weight:900}
-.hero{margin:12px;background:linear-gradient(135deg,#000 0%,#1a1a1a 50%,#25D366 100%);border-radius:16px;padding:16px;color:#fff;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden}
-.hero:after{content:'';position:absolute;right:-20px;top:-20px;width:120px;height:120px;background:rgba(37,211,102,.2);border-radius:50%}
-.search{margin:12px;background:#fff;border-radius:14px;padding:4px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 12px rgba(0,0,0,.06)}.search input{flex:1;border:0;outline:0;padding:12px 0;font-size:14px}
-.stats{display:flex;gap:8px;padding:0 12px;overflow-x:auto}.st{background:#fff;border-radius:12px;padding:10px 12px;min-width:110px;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid #eee}.st b{font-size:18px;display:block}.st small{font-size:10px;color:#888;font-weight:700}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
-.prod{background:#fff;border-radius:16px;padding:10px;box-shadow:0 4px 12px rgba(0,0,0,.06);border:1px solid #f0f0f0;transition:.2s;position:relative}
-.prod:active{transform:scale(.98)}.prod.img{width:100%;height:130px;background:#f8f8f8;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}.prod.img img{width:100%;height:100%;object-fit:cover}
-.prod b{font-size:13px;display:block;margin:8px 0 2px;line-height:1.2}.prod small{font-size:11px;color:#777}.price{color:#111;font-weight:900;font-size:16px;margin-top:4px}.price span{color:#25D366}
-.badgeOff{position:absolute;top:8px;left:8px;background:#ff3b30;color:#fff;font-size:9px;font-weight:900;padding:4px 6px;border-radius:6px;z-index:2}
-.add{width:100%;background:#111;color:#fff;border:0;padding:10px;border-radius:10px;font-weight:800;font-size:12px;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:5px}
-.cart{position:fixed;bottom:75px;left:10px;right:10px;background:#fff;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.3);padding:16px;display:none;max-height:72vh;overflow:auto;z-index:90;border:1px solid #eee}.cart.show{display:block}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0 10px;z-index:80}.bottom div{text-align:center;font-size:10px;flex:1;font-weight:700;color:#888}.bottom div.on{color:#111}.bottom div i{font-size:18px;display:block;font-style:normal}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);z-index:200;align-items:flex-end;justify-content:center}.modal.show{display:flex}.sheet{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:480px;max-height:94vh;overflow:auto;padding:0;animation:up.3s}@keyframes up{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.sheetHead{padding:18px 16px 12px;position:sticky;top:0;background:#fff;z-index:2;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}.sheetBody{padding:16px}
-.inp{width:100%;background:#f5f6f7;border:1.5px solid #eee;padding:13px;border-radius:12px;margin:6px 0;font-size:14px;outline:0;transition:.2s}.inp:focus{border-color:#25D366;background:#fff}
-.btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:900;font-size:14px;margin-top:8px;cursor:pointer}.btnP{background:#111;color:#fff}.btnG{background:#25D366;color:#fff}.btnL{background:#f5f6f7;color:#111}
-.tabs{display:flex;gap:6px;background:#f5f6f7;padding:4px;border-radius:12px;margin:12px 0}.tab{flex:1;padding:10px;text-align:center;border-radius:9px;font-weight:800;font-size:12px;cursor:pointer}.tab.on{background:#111;color:#fff}
-.upBox{border:2px dashed #ddd;background:#fafafa;border-radius:14px;padding:22px;text-align:center;margin:10px 0;transition:.2s;cursor:pointer}.upBox.has{border-color:#25D366;background:#f0fff4}
-.orderCard{background:#f9f9f9;border:1px solid #eee;border-radius:12px;padding:12px;margin:8px 0}
-.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f6f7f9;padding-bottom:85px}
+.top{background:#000;color:#fff;padding:14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.badge{background:#ff3b30;color:#fff;border-radius:10px;padding:2px 6px;font-size:10px;position:absolute;top:-8px;right:-8px}
+.hero{margin:12px;background:linear-gradient(135deg,#000,#25D366);border-radius:16px;padding:16px;color:#fff;display:flex;justify-content:space-between}
+.search{margin:12px;background:#fff;border-radius:14px;padding:4px 12px;display:flex;gap:10px}.search input{flex:1;border:0;outline:0;padding:12px 0}
+.cats{display:flex;gap:8px;padding:0 12px;overflow-x:auto}.cat{background:#fff;border:1px solid #eee;padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;white-space:nowrap}.cat.on{background:#111;color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}.prod{background:#fff;border-radius:16px;padding:10px;box-shadow:0 4px 12px rgba(0,0,0,.06);position:relative}.prod.img{width:100%;height:145px;background:#f8f8f8;border-radius:12px;overflow:hidden}.prod.img img{width:100%;height:100%;object-fit:cover}
+.price{font-weight:900;font-size:16px}.price span{color:#25D366}.old{text-decoration:line-through;color:#999;font-size:11px}.off{position:absolute;top:8px;left:8px;background:#ff3b30;color:#fff;font-size:9px;font-weight:900;padding:4px 7px;border-radius:6px;z-index:2}.add{width:100%;background:#111;color:#fff;border:0;padding:10px;border-radius:10px;font-weight:800;font-size:12px;margin-top:8px}
+.cart{position:fixed;bottom:75px;left:10px;right:10px;background:#fff;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.3);padding:16px;display:none;max-height:72vh;overflow:auto;z-index:90}.cart.show{display:block}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0 10px;z-index:80}.bottom div{text-align:center;font-size:10px;flex:1;font-weight:700;color:#888}.bottom div.on{color:#111}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:flex-end;justify-content:center}.modal.show{display:flex}.sheet{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:480px;max-height:94vh;overflow:auto}.sheetHead{padding:18px 16px 12px;position:sticky;top:0;background:#fff;z-index:2;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between}.sheetBody{padding:16px}
+.inp{width:100%;background:#f5f6f7;border:1.5px solid #eee;padding:13px;border-radius:12px;margin:6px 0;font-size:14px}.btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:900;font-size:14px;margin-top:8px}.btnP{background:#111;color:#fff}.btnG{background:#25D366;color:#fff}.btnL{background:#f5f6f7;color:#111}
+.tabs{display:flex;gap:6px;background:#f5f6f7;padding:4px;border-radius:12px;margin:12px 0}.tab{flex:1;padding:10px;text-align:center;border-radius:9px;font-weight:800;font-size:11px}.tab.on{background:#111;color:#fff}
+.upBox{border:2px dashed #ddd;background:#fafafa;border-radius:14px;padding:22px;text-align:center;margin:10px 0}
 </style></head><body>
-<div class="top"><div><b>One<span>Xpress</span> Shop</b><div style="font-size:9px;opacity:.7;letter-spacing:1px">LUANDA • ENTREGA 24H</div></div><div style="display:flex;gap:8px;align-items:center"><div class="tel">925 356 739</div><div onclick="togCart()" style="position:relative">🛒<span id="cartNum" style="position:absolute;top:-8px;right:-8px;background:#ff3b30;color:#fff;border-radius:10px;padding:1px 5px;font-size:10px;font-weight:900">0</span></div></div></div>
-
-<div class="hero"><div><div style="background:#25D366;color:#000;display:inline-block;padding:3px 8px;border-radius:20px;font-size:9px;font-weight:900;margin-bottom:6px">🔥 MAIS VENDIDOS</div><div style="font-weight:900;font-size:16px;line-height:1.1">TIMBERLAND<br>10.000 KZ | SABRINAS<br>3.000 KZ</div><div style="font-size:11px;opacity:.8;margin-top:4px">✓ Multicaixa • ✓ Paga na Entrega • ✓ Frete 1500 Kz</div></div><div style="font-size:48px;z-index:2">🥾</div></div>
-
-<div class="search">🔍<input id="busca" placeholder="Buscar Timberland, Sabrina..." oninput="filtra()"><span style="background:#111;color:#fff;padding:6px 10px;border-radius:8px;font-size:11px;font-weight:800">BUSCAR</span></div>
-
-<div class="stats">
-<div class="st"><small>PRODUTOS</small><b id="stProd">2</b><small style="color:#25D366">● Ativos</small></div>
-<div class="st"><small>PEDIDOS HOJE</small><b id="stPed">0</b><small>📦 Total</small></div>
-<div class="st"><small>VENDAS</small><b id="stVenda" style="color:#25D366">0 Kz</b><small>💰 Total</small></div>
-<div class="st"><small>CLIENTES</small><b>Luanda</b><small>📍 24h</small></div>
-</div>
-
+<div class="top"><div><b>One<span style="color:#25D366">Xpress</span> Shop</b><div style="font-size:9px;opacity:.7">9 PRODUTOS • ENTREGA 24H</div></div><div style="display:flex;gap:12px;align-items:center"><div style="background:#25D366;color:#000;padding:4px 8px;border-radius:20px;font-size:9px;font-weight:900">925356739</div><div onclick="togCart()" style="position:relative;font-size:22px">🛒<span id="cartNum" class="badge">0</span></div></div></div>
+<div class="hero"><div><div style="background:#25D366;color:#000;display:inline-block;padding:3px 8px;border-radius:20px;font-size:9px;font-weight:900">🔥 9 MODELOS REAIS</div><div style="font-weight:900;font-size:14px;margin-top:4px">TIMBERLAND 10.000 KZ<br>SABRINAS 3.000 KZ<br>INFANTIL 3.000 KZ</div><div style="font-size:10px;opacity:.8;margin-top:4px">✓ 36-44 e 25-30 • ✓ Frete 1500 Kz • ✓ Paga na Entrega</div></div><div style="font-size:38px">🥾👠</div></div>
+<div class="search">🔍<input id="busca" placeholder="Buscar KSM7403, Timberland..." oninput="render()"></div>
+<div class="cats"><div class="cat on" onclick="setCat(this,'')">Tudo (9)</div><div class="cat" onclick="setCat(this,'Timberland')">🥾 Timberland (3)</div><div class="cat" onclick="setCat(this,'Sabrinas')">👠 Sabrinas (4)</div><div class="cat" onclick="setCat(this,'Infantil')">👧 Infantil (2)</div></div>
 <div class="grid" id="grid"></div>
-
-<div class="cart" id="cartBox">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b style="font-size:16px">🛒 Meu Carrinho <span id="cCart">0</span></b><span onclick="togCart()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px;font-weight:900">✕</span></div>
-<div id="cartList"></div>
-<div style="background:#111;color:#fff;padding:12px;border-radius:12px;margin-top:10px">
-<div style="display:flex;justify-content:space-between;font-size:12px;opacity:.7"><span>Subtotal</span><span id="subT">0 Kz</span></div>
-<div style="display:flex;justify-content:space-between;font-size:12px;opacity:.7;margin:4px 0"><span>Entrega Luanda</span><span>1500 Kz</span></div>
-<div style="display:flex;justify-content:space-between;font-size:16px;font-weight:900;margin-top:8px;border-top:1px solid #333;padding-top:8px"><span>Total</span><span id="totT" style="color:#25D366">0 Kz</span></div>
-</div>
-<button class="btn btnG" onclick="openM('checkout')">📲 FINALIZAR NO WHATSAPP</button>
-</div>
-
-<div class="bottom">
-<div class="on" onclick="window.scrollTo(0,0)"><i>🏠</i>Inicio</div>
-<div onclick="togCart()"><i>🛒</i>Carrinho <b id="bCart">0</b></div>
-<div onclick="openM('pedidos')"><i>📦</i>Pedidos</div>
-<div onclick="openM('adm')"><i>⚙️</i>ADM Pro</div>
-</div>
-
-<!-- CHECKOUT -->
-<div id="mCheckout" class="modal"><div class="sheet"><div class="sheetHead"><b>Finalizar Pedido</b><span onclick="closeM()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px">✕</span></div><div class="sheetBody">
-<input class="inp" id="nome" placeholder="Seu nome completo *">
-<input class="inp" id="tel" placeholder="WhatsApp 925... *" value="925">
-<textarea class="inp" id="end" placeholder="Bairro, Rua, Casa... Ex: Viana, Luanda Sul *"></textarea>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="inp" type="date" id="dataEnt"><select class="inp" id="paySel"><option>💳 Multicaixa Express</option><option>💰 Paga na Entrega</option><option>🏦 Transferência BAI</option></select></div>
-<div style="background:#f0fff4;border:1px solid #25D366;border-radius:12px;padding:12px;margin-top:10px"><div style="font-size:11px;font-weight:800">RESUMO DO PEDIDO</div><div style="display:flex;justify-content:space-between;margin-top:6px;font-weight:900">Total a pagar: <span id="chkTot" style="color:#25D366">0 Kz</span></div><div style="font-size:10px;color:#666;margin-top:4px">✓ Entrega 24h • ✓ Frete 1500 Kz incluso</div></div>
-<button class="btn btnG" onclick="enviarZap()">📲 ENVIAR PARA 925356739</button><button class="btn btnL" onclick="closeM()">Continuar comprando</button>
-</div></div></div>
-
-<!-- PEDIDOS -->
+<div class="cart" id="cartBox"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><b>🛒 Carrinho <span id="cCart">0</span></b><span onclick="togCart()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px">✕</span></div><div id="cartList"></div><div style="background:#111;color:#fff;padding:12px;border-radius:12px;margin-top:10px"><div style="display:flex;justify-content:space-between;font-size:12px;opacity:.7"><span>Subtotal</span><span id="subT">0 Kz</span></div><div style="display:flex;justify-content:space-between;font-size:12px;opacity:.7;margin:4px 0"><span>Entrega Luanda</span><span>1500 Kz</span></div><div style="display:flex;justify-content:space-between;font-size:16px;font-weight:900;margin-top:8px;border-top:1px solid #333;padding-top:8px"><span>Total</span><span id="totT" style="color:#25D366">0 Kz</span></div></div><button class="btn btnG" onclick="openM('checkout')">📲 FINALIZAR WHATSAPP 925356739</button></div>
+<div class="bottom"><div class="on" onclick="window.scrollTo(0,0)">🏠<br>Inicio</div><div onclick="togCart()">🛒<br>Carrinho <b id="bCart">0</b></div><div onclick="openM('pedidos')">📦<br>Pedidos</div><div onclick="openM('adm')">⚙️<br>ADM Pro</div></div>
+<div id="mCheckout" class="modal"><div class="sheet"><div class="sheetHead"><b>Finalizar Pedido</b><span onclick="closeM()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px">✕</span></div><div class="sheetBody"><input class="inp" id="nome" placeholder="Seu nome completo *"><input class="inp" id="tel" placeholder="WhatsApp 925... *" value="925"><textarea class="inp" id="end" placeholder="Bairro, Rua, Casa... *"></textarea><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="inp" type="date" id="dataEnt"><select class="inp" id="paySel"><option>💳 Multicaixa Express</option><option>💰 Paga na Entrega</option><option>🏦 Transferência BAI</option></select></div><div style="background:#f0fff4;border:1px solid #25D366;border-radius:12px;padding:12px;margin-top:10px"><div style="font-size:11px;font-weight:800">TOTAL A PAGAR</div><b id="chkTot" style="color:#25D366;font-size:20px">0 Kz</b><div style="font-size:10px;color:#666">✓ Frete 1500 Kz incluso • Entrega 24h</div></div><button class="btn btnG" onclick="enviarZap()">📲 ENVIAR PARA 925356739</button><button class="btn btnL" onclick="closeM()">Continuar comprando</button></div></div></div>
 <div id="mPedidos" class="modal"><div class="sheet"><div class="sheetHead"><b>📦 Meus Pedidos</b><span onclick="closeM()" style="background:#f5f5f7;padding:6px 10px;border-radius:20px">✕</span></div><div class="sheetBody" id="pedList"></div></div></div>
-
-<!-- ADM PRO -->
-<div id="mAdm" class="modal"><div class="sheet" style="max-width:520px"><div class="sheetHead"><b>⚙️ PAINEL ADM PRO</b><span onclick="closeM()" style="background:#ff3b30;color:#fff;padding:6px 10px;border-radius:20px">SAIR ✕</span></div><div class="sheetBody">
-<div class="kpi">
-<div style="background:#111;color:#fff;border-radius:12px;padding:12px"><small style="opacity:.6">VENDAS HOJE</small><b id="kVenda" style="display:block;font-size:20px;color:#25D366">0 Kz</b></div>
-<div style="background:#f5f6f7;border-radius:12px;padding:12px"><small>PRODUTOS</small><b id="kProd" style="display:block;font-size:20px">2</b><small>Ativos na loja</small></div>
-</div>
-
-<div class="tabs"><div class="tab on" onclick="setTab(this,'prod')">📦 PRODUTOS</div><div class="tab" onclick="setTab(this,'ped')">📋 PEDIDOS</div><div class="tab" onclick="setTab(this,'conf')">⚙️ LOJA</div></div>
-
+<div id="mAdm" class="modal"><div class="sheet" style="max-width:520px"><div class="sheetHead"><b>⚙️ ADM PRO - 9 PRODUTOS REAIS</b><span onclick="closeM()" style="background:#ff3b30;color:#fff;padding:6px 10px;border-radius:20px">✕ FECHAR</span></div><div class="sheetBody">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div style="background:#111;color:#fff;border-radius:12px;padding:12px"><small style="opacity:.6">VENDAS TOTAIS</small><b id="kVenda" style="display:block;font-size:18px;color:#25D366">0 Kz</b></div><div style="background:#f5f6f7;border-radius:12px;padding:12px"><small>PRODUTOS</small><b id="kProd" style="display:block;font-size:18px">9</b><small style="color:#25D366">● Ao vivo</small></div></div>
+<div class="tabs"><div class="tab on" onclick="setTab(this,'prod')">📦 PRODUTOS</div><div class="tab" onclick="setTab(this,'ped')">📋 PEDIDOS</div><div class="tab" onclick="setTab(this,'conf')">⚙️ CONFIG</div></div>
 <div id="tabProd">
 <div style="background:#f5f6f7;border-radius:14px;padding:14px">
-<b style="font-size:13px">➕ ADICIONAR PRODUTO</b>
-<input class="inp" id="pNome" placeholder="Nome: Ex: Timberland Premium Marrom">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="inp" id="pPreco" type="number" placeholder="Preço: 10000"><input class="inp" id="pPrecoAnt" type="number" placeholder="Preço antigo: 15000 (opcional)"></div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><select class="inp" id="pCat"><option value="Calçados">🥾 Calçados</option><option value="Roupas">👕 Roupas</option><option value="Eletronicos">📱 Eletrônicos</option><option value="Casa">🏠 Casa</option></select><input class="inp" id="pEstoque" type="number" placeholder="Estoque: 20"></div>
-<input class="inp" id="pDesc" placeholder="Descrição: Tamanhos, cores...">
-
-<div class="upBox" id="upBox" onclick="document.getElementById('fileImg').click()">
-<div style="font-size:32px">📸</div>
-<div style="font-weight:900;font-size:13px;margin:6px 0">TOCAR PARA CARREGAR FOTO</div>
-<div style="font-size:11px;color:#888">Da galeria ou câmera • JPG, PNG</div>
-<input type="file" id="fileImg" accept="image/*" hidden>
-<img id="preview" style="width:100%;height:160px;object-fit:cover;border-radius:12px;margin-top:12px;display:none">
-<div id="fileName" style="font-size:11px;margin-top:8px;font-weight:700;color:#25D366"></div>
-</div>
-
+<b style="font-size:13px">➕ ADICIONAR NOVO PRODUTO COM FOTO</b>
+<input class="inp" id="pNome" placeholder="Nome ex: Timberland Azul Tam 42">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="inp" id="pPreco" type="number" placeholder="Preço: 10000"><input class="inp" id="pPrecoAnt" type="number" placeholder="Preço antigo: 15000"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><select class="inp" id="pCat"><option>Timberland</option><option>Sabrinas</option><option>Infantil</option><option>Calçados</option></select><input class="inp" id="pEstoque" type="number" placeholder="Estoque: 20"></div>
+<input class="inp" id="pDesc" placeholder="Descrição: Tamanhos, cores, referência KSM...">
+<div class="upBox" id="upBox" onclick="document.getElementById('fileImg').click()"><div style="font-size:32px">📸</div><div style="font-weight:900;font-size:13px;margin:6px 0">TOCAR PARA CARREGAR FOTO DA GALERIA</div><div style="font-size:11px;color:#888">JPG, PNG • Da câmera ou galeria</div><input type="file" id="fileImg" accept="image/*" hidden><img id="preview" style="width:100%;height:160px;object-fit:cover;border-radius:12px;margin-top:12px;display:none"><div id="fileName" style="font-size:11px;margin-top:8px;font-weight:700;color:#25D366"></div></div>
 <button class="btn btnP" onclick="addProd()">💾 PUBLICAR NA LOJA AGORA</button>
 </div>
 <div id="admLista" style="margin-top:14px"></div>
 </div>
-
-<div id="tabPed" style="display:none"><div id="admPedidos"></div><button class="btn btnL" onclick="if(confirm('Limpar todos pedidos?')){localStorage.removeItem('pedidos');location.reload()}">🗑️ Limpar histórico</button></div>
-
-<div id="tabConf" style="display:none">
-<div style="background:#f5f6f7;border-radius:14px;padding:14px">
-<b>⚙️ CONFIGURAÇÕES DA LOJA</b>
-<input class="inp" id="cNome" value="OneXpress Shop" placeholder="Nome da loja">
-<input class="inp" id="cZap" value="244925356739" placeholder="WhatsApp: 244925356739">
-<input class="inp" id="cFrete" value="1500" type="number" placeholder="Frete: 1500">
-<textarea class="inp" id="cMsg" placeholder="Mensagem automática do WhatsApp">Olá! Pedido da OneXpress Shop 🥾</textarea>
-<button class="btn btnP" onclick="saveConf()">💾 SALVAR CONFIGURAÇÕES</button>
-<div style="margin-top:12px;background:#fff;border-radius:10px;padding:10px;font-size:11px"><b>🔗 Seu link da loja:</b><br>lucas-32127.github.io/OneXpress-shop-/ <br><br><b>Compartilhe:</b><br>• Status WhatsApp<br>• Grupos Facebook<br>• Instagram Bio</div>
-</div>
-</div>
-
+<div id="tabPed" style="display:none"><div id="admPedidos"></div><button class="btn btnL" onclick="if(confirm('Limpar pedidos?')){localStorage.removeItem('ox_ped9');location.reload()}">🗑️ Limpar histórico</button></div>
+<div id="tabConf" style="display:none"><div style="background:#f5f6f7;border-radius:14px;padding:14px"><b>⚙️ CONFIGURAÇÕES</b><input class="inp" id="cNome" value="OneXpress Shop"><input class="inp" id="cZap" value="244925356739"><input class="inp" id="cFrete" value="1500" type="number"><textarea class="inp" id="cMsg">Olá! Pedido da OneXpress Shop 🥾</textarea><button class="btn btnP" onclick="saveConf()">💾 SALVAR</button><div style="margin-top:12px;background:#fff;border-radius:10px;padding:10px;font-size:11px"><b>🔗 Seu link:</b><br>lucas-32127.github.io/OneXpress-shop-/ <br><br>Compartilhe no Status WhatsApp!</div></div></div>
 </div></div></div>
-
 <script>
-var prods=JSON.parse(localStorage.getItem('ox_pro_v5')||'null')||[
-{n:'Timberland Original',p:10000,pa:15000,cat:'Calçados',d:'Tam 40-44 • Couro legitimo • Entrega 24h',img:'',est:15},
-{n:'Sabrinas Femininas',p:3000,pa:5000,cat:'Calçados',d:'Tam 35-40 • Confortavel • Varias cores',img:'',est:30},
-{n:'Fones Bluetooth',p:8500,pa:12000,cat:'Eletronicos',d:'Cor: Preto, Vermelho • Bateria 20h',img:'',est:10}
+var defaultProds=[
+{n:"Sabrina KSM7403 Fashion",p:3000,pa:4500,cat:"Sabrinas",d:"Tam 36-42 • 4 cores • Preto, Vinho, Branco, Nude • 40PRS",img:"prod_1.jpg",est:40},
+{n:"Sabrina KSM7463 Laço",p:3000,pa:4500,cat:"Sabrinas",d:"Tam 36-42 • Preto, Vermelho, Branco, Mostarda • 40PRS",img:"prod_2.jpg",est:40},
+{n:"Sabrina KSM7472 Luxo DK",p:3000,pa:5000,cat:"Sabrinas",d:"Tam 36-42 • Verde, Preto, Marrom, Azul • Pedraria",img:"prod_3.jpg",est:40},
+{n:"Sabrina KSM7548 Lisa",p:3000,pa:4000,cat:"Sabrinas",d:"Tam 36-42 • Preto, Prata, Marrom, Vermelho • Simples",img:"prod_4.jpg",est:40},
+{n:"Sabrina Infantil KGM7124",p:3000,pa:4000,cat:"Infantil",d:"Tam 25-30 • Preto, Branco, Vermelho, Rosa • Menina",img:"prod_5.jpg",est:40},
+{n:"Sabrina Infantil KGM7128",p:3000,pa:4000,cat:"Infantil",d:"Tam 25-30 • Bege, Rosa, Marrom, Preto • Bico branco",img:"prod_6.jpg",est:40},
+{n:"Timberland KA16700C",p:10000,pa:15000,cat:"Timberland",d:"Tam 39-44 • Azul, Preto, Azul/Marrom • Couro • 24PRS",img:"prod_7.jpg",est:24},
+{n:"Timberland Premium Azul Grama",p:10000,pa:16000,cat:"Timberland",d:"Tam 39-44 • Azul marinho texturizado • Original",img:"prod_8.jpg",est:15},
+{n:"Timberland KA16807A",p:10000,pa:15000,cat:"Timberland",d:"Tam 39-44 • Preto, Azul, Branco • Respirável • 24PRS",img:"prod_9.jpg",est:24}
 ];
-var cart=JSON.parse(localStorage.getItem('ox_cart_v5')||'[]');
-var pedidos=JSON.parse(localStorage.getItem('ox_ped_v5')||'[]');
-var conf=JSON.parse(localStorage.getItem('ox_conf')||'{"nome":"OneXpress Shop","zap":"244925356739","frete":1500}');
-var tempImg='';
-
-document.getElementById('fileImg').addEventListener('change',function(e){
-var f=e.target.files[0];if(!f)return;
-document.getElementById('fileName').innerText='📁 '+f.name+' ('+(f.size/1024).toFixed(0)+' KB)';
-var r=new FileReader();r.onload=function(ev){tempImg=ev.target.result;var im=document.getElementById('preview');im.src=tempImg;im.style.display='block';document.getElementById('upBox').classList.add('has')};r.readAsDataURL(f);
-});
-
-function save(){localStorage.setItem('ox_pro_v5',JSON.stringify(prods));localStorage.setItem('ox_cart_v5',JSON.stringify(cart));localStorage.setItem('ox_ped_v5',JSON.stringify(pedidos));localStorage.setItem('ox_conf',JSON.stringify(conf))}
-
-function render(){
-var g=document.getElementById('grid');var q=document.getElementById('busca').value.toLowerCase();
-var f=prods.filter(function(p){return p.n.toLowerCase().includes(q)});
-var h='';for(var i=0;i<f.length;i++){
-var p=f[i];var idx=prods.indexOf(p);
-var off=p.pa&&p.pa>p.p?Math.round((1-p.p/p.pa)*100):0;
-h+='<div class=prod>'+(off?'<div class=badgeOff>-'+off+'% OFF</div>':'')+'<div class=img>'+(p.img?'<img src="'+p.img+'">':'<div style="font-size:50px">🥾</div>')+'</div><b>'+p.n+'</b><small>'+p.d+'</small><div style="display:flex;gap:6px;align-items:center"><div class=price><span>'+p.p.toLocaleString()+' Kz</span></div>'+(p.pa?' <small style="text-decoration:line-through;color:#999">'+p.pa.toLocaleString()+' Kz</small>':'')+'</div><small style="color:'+(p.est<5?'#ff3b30':'#25D366')+'">● '+(p.est||0)+' em estoque</small><button class=add onclick="addCart('+idx+')">🛒 + Carrinho</button></div>';
-}
-g.innerHTML=h;
-document.getElementById('stProd').innerText=prods.length;document.getElementById('kProd').innerText=prods.length;
-var totV=0;for(var i=0;i<pedidos.length;i++)totV+=pedidos[i].total;document.getElementById('stVenda').innerText=totV.toLocaleString()+' Kz';document.getElementById('kVenda').innerText=totV.toLocaleString()+' Kz';document.getElementById('stPed').innerText=pedidos.length;
-renderCart();renderAdm();renderAdmPed();
-}
-
-function filtra(){render()}
+var prods=JSON.parse(localStorage.getItem('ox_final9')||'null')||defaultProds;
+var cart=JSON.parse(localStorage.getItem('ox_cart9')||'[]');
+var pedidos=JSON.parse(localStorage.getItem('ox_ped9')||'[]');
+var conf=JSON.parse(localStorage.getItem('ox_conf9')||'{"nome":"OneXpress Shop","zap":"244925356739","frete":1500}');
+var tempImg='',catSel='';
+document.getElementById('fileImg').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){tempImg=ev.target.result;document.getElementById('preview').src=tempImg;document.getElementById('preview').style.display='block';document.getElementById('upBox').style.borderColor='#25D366';document.getElementById('fileName').innerText='📁 '+f.name};r.readAsDataURL(f)});
+function save(){localStorage.setItem('ox_final9',JSON.stringify(prods));localStorage.setItem('ox_cart9',JSON.stringify(cart));localStorage.setItem('ox_ped9',JSON.stringify(pedidos));localStorage.setItem('ox_conf9',JSON.stringify(conf))}
+function setCat(el,c){document.querySelectorAll('.cat').forEach(x=>x.classList.remove('on'));el.classList.add('on');catSel=c;render()}
+function render(){var g=document.getElementById('grid');var q=(document.getElementById('busca').value||'').toLowerCase();var f=prods.filter(p=>(!catSel||p.cat==catSel)&&(!q||p.n.toLowerCase().includes(q)||p.d.toLowerCase().includes(q)));var h='';for(var i=0;i<f.length;i++){var p=f[i];var idx=prods.indexOf(p);var off=p.pa&&p.pa>p.p?Math.round((1-p.p/p.pa)*100):0;h+='<div class=prod>'+(off?'<div class=off>-'+off+'% OFF</div>':'')+'<div class=img><img src="'+p.img+'" loading=lazy onerror="this.src=\'https://via.placeholder.com/300?text=Foto\'"></div><b>'+p.n+'</b><small>'+p.d+'</small><div style="display:flex;gap:6px;align-items:center;margin-top:4px"><div class=price><span>'+p.p.toLocaleString()+' Kz</span></div>'+(p.pa?' <span class=old>'+p.pa.toLocaleString()+'</span>':'')+'</div><small style="color:'+(p.est<5?'#ff3b30':'#25D366')+'">● '+p.est+' em estoque • '+p.cat+'</small><button class=add onclick="addCart('+idx+')">🛒 + CARRINHO</button></div>'}g.innerHTML=h;var totV=0;for(var i=0;i<pedidos.length;i++)totV+=pedidos[i].total;document.getElementById('kVenda').innerText=totV.toLocaleString()+' Kz';document.getElementById('kProd').innerText=prods.length;renderCart();renderAdm();renderAdmPed()}
 function addCart(i){var ex=null;for(var j=0;j<cart.length;j++)if(cart[j].idx==i)ex=cart[j];if(ex)ex.q++;else cart.push({idx:i,n:prods[i].n,p:prods[i].p,q:1});save();renderCart();togCart(true)}
-function renderCart(){
-var t=0,c=0;var h='';for(var i=0;i<cart.length;i++){var it=cart[i];t+=it.p*it.q;c+=it.q;h+='<div style="display:flex;justify-content:space-between;align-items:center;background:#f9f9f9;padding:10px;border-radius:10px;margin-bottom:6px"><div><b style="font-size:13px">'+it.n+'</b><br><small>'+it.p.toLocaleString()+' Kz x '+it.q+'</small></div><div style="display:flex;align-items:center;gap:6px"><button onclick="chg('+i+',-1)" style="background:#eee;border:0;padding:6px 10px;border-radius:8px;font-weight:900">-</button><span style="font-weight:900">'+it.q+'</span><button onclick="chg('+i+',1)" style="background:#111;color:#fff;border:0;padding:6px 10px;border-radius:8px">+</button><span onclick="rem('+i+')" style="color:#ff3b30;margin-left:6px">🗑️</span></div></div>'}
-document.getElementById('cartList').innerHTML=h||'<div style="text-align:center;padding:20px;color:#888">🛒 Carrinho vazio<br><small>Adicione Timberland ou Sabrinas</small></div>';
-var frete=parseInt(conf.frete)||1500;
-document.getElementById('subT').innerText=t.toLocaleString()+' Kz';document.getElementById('totT').innerText=(t+frete).toLocaleString()+' Kz';document.getElementById('chkTot').innerText=(t+frete).toLocaleString()+' Kz';
-document.getElementById('cartNum').innerText=c;document.getElementById('bCart').innerText=c;document.getElementById('cCart').innerText=c;
-}
+function renderCart(){var t=0,c=0;var h='';for(var i=0;i<cart.length;i++){var it=cart[i];t+=it.p*it.q;c+=it.q;h+='<div style="display:flex;justify-content:space-between;align-items:center;background:#f9f9f9;padding:10px;border-radius:10px;margin-bottom:6px"><div><b style="font-size:13px">'+it.n+'</b><br><small>'+it.p.toLocaleString()+' x '+it.q+'</small></div><div style="display:flex;gap:6px;align-items:center"><button onclick="chg('+i+',-1)" style="background:#eee;border:0;padding:6px 10px;border-radius:8px">-</button><b>'+it.q+'</b><button onclick="chg('+i+',1)" style="background:#111;color:#fff;border:0;padding:6px 10px;border-radius:8px">+</button><span onclick="rem('+i+')" style="color:#ff3b30;margin-left:6px">🗑️</span></div></div>'}document.getElementById('cartList').innerHTML=h||'<div style="text-align:center;padding:20px;color:#888">Carrinho vazio<br><small>Adicione Timberland ou Sabrinas</small></div>';var frete=parseInt(conf.frete)||1500;document.getElementById('subT').innerText=t.toLocaleString()+' Kz';document.getElementById('totT').innerText=(t+frete).toLocaleString()+' Kz';document.getElementById('chkTot').innerText=(t+frete).toLocaleString()+' Kz';document.getElementById('cartNum').innerText=c;document.getElementById('bCart').innerText=c;document.getElementById('cCart').innerText=c}
 function chg(i,d){cart[i].q+=d;if(cart[i].q<=0)cart.splice(i,1);save();renderCart()}
 function rem(i){cart.splice(i,1);save();renderCart()}
-function togCart(f){var c=document.getElementById('cartBox');if(f){c.classList.add('show');return}c.classList.toggle('show')}
+function togCart(f){var c=document.getElementById('cartBox');if(f)c.classList.add('show');else c.classList.toggle('show')}
 function openM(t){closeM();document.getElementById('m'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('show')}
-function closeM(){document.querySelectorAll('.modal').forEach(function(m){m.classList.remove('show')})}
-function setTab(el,tab){
-document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});el.classList.add('on');
-document.getElementById('tabProd').style.display=tab=='prod'?'block':'none';
-document.getElementById('tabPed').style.display=tab=='ped'?'block':'none';
-document.getElementById('tabConf').style.display=tab=='conf'?'block':'none';
-}
-function addProd(){
-var n=document.getElementById('pNome').value,p=parseInt(document.getElementById('pPreco').value),pa=parseInt(document.getElementById('pPrecoAnt').value)||0,cat=document.getElementById('pCat').value,d=document.getElementById('pDesc').value,est=parseInt(document.getElementById('pEstoque').value)||10;
-if(!n||!p){alert('Nome e preço obrigatório');return}
-if(!tempImg){if(!confirm('Sem foto? Vai usar emoji 👟. Continuar?'))return}
-prods.unshift({n:n,p:p,pa:pa,cat:cat,d:d,img:tempImg,est:est});save();render();
-document.getElementById('pNome').value='';document.getElementById('pPreco').value='';document.getElementById('pPrecoAnt').value='';document.getElementById('pDesc').value='';document.getElementById('pEstoque').value='';tempImg='';document.getElementById('preview').style.display='none';document.getElementById('fileName').innerText='';document.getElementById('fileImg').value='';document.getElementById('upBox').classList.remove('has');
-alert('✅ Produto publicado com sucesso!');
-}
-function renderAdm(){
-var el=document.getElementById('admLista');var h='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><b style="font-size:12px">'+prods.length+' PRODUTOS NA LOJA</b><small style="background:#25D366;color:#fff;padding:3px 8px;border-radius:10px;font-weight:800">● AO VIVO</small></div>';
-for(var i=0;i<prods.length;i++){
-var p=prods[i];
-h+='<div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:10px;margin:6px 0;display:flex;gap:10px;align-items:center"><div style="width:56px;height:56px;background:#f5f5f7;border-radius:10px;overflow:hidden;flex-shrink:0">'+(p.img?'<img src="'+p.img+'" style="width:100%;height:100%;object-fit:cover">':'<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:24px">🥾</div>')+'</div><div style="flex:1"><b style="font-size:12px">'+p.n+'</b><br><small style="color:#888">'+p.cat+' • Estoque: '+p.est+'</small><br><b style="color:#25D366;font-size:13px">'+p.p.toLocaleString()+' Kz</b>'+(p.pa?' <small style="text-decoration:line-through;color:#999">'+p.pa.toLocaleString()+'</small>':'')+'</div><button onclick="delProd('+i+')" style="background:#ff3b301a;color:#ff3b30;border:0;padding:8px 10px;border-radius:8px;font-weight:900">🗑️</button></div>';
-}
-el.innerHTML=h;
-}
+function closeM(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'))}
+function setTab(el,tab){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));el.classList.add('on');document.getElementById('tabProd').style.display=tab=='prod'?'block':'none';document.getElementById('tabPed').style.display=tab=='ped'?'block':'none';document.getElementById('tabConf').style.display=tab=='conf'?'block':'none'}
+function addProd(){var n=document.getElementById('pNome').value,p=parseInt(document.getElementById('pPreco').value),pa=parseInt(document.getElementById('pPrecoAnt').value)||0,cat=document.getElementById('pCat').value,d=document.getElementById('pDesc').value,est=parseInt(document.getElementById('pEstoque').value)||10;if(!n||!p){alert('Nome e preço');return}if(!tempImg&&!confirm('Publicar sem foto?'))return;prods.unshift({n:n,p:p,pa:pa,cat:cat,d:d,img:tempImg||'',est:est});save();render();tempImg='';document.getElementById('preview').style.display='none';document.getElementById('pNome').value='';document.getElementById('pPreco').value='';document.getElementById('pDesc').value='';document.getElementById('fileName').innerText='';alert('✅ Produto publicado com sucesso! Já aparece na loja!')}
+function renderAdm(){var el=document.getElementById('admLista');var h='<b style="font-size:12px">'+prods.length+' PRODUTOS AO VIVO NA LOJA</b>';for(var i=0;i<prods.length;i++){var p=prods[i];h+='<div style="background:#fff;border:1px solid #eee;border-radius:12px;padding:10px;margin:6px 0;display:flex;gap:10px;align-items:center"><div style="width:56px;height:56px;background:#f5f5f7;border-radius:10px;overflow:hidden;flex-shrink:0"><img src="'+p.img+'" style="width:100%;height:100%;object-fit:cover" onerror="this.src=\'https://via.placeholder.com/100\'"></div><div style="flex:1"><b style="font-size:12px">'+p.n+'</b><br><small style="color:#888">'+p.cat+' • Estoque: '+p.est+'</small><br><b style="color:#25D366;font-size:13px">'+p.p.toLocaleString()+' Kz</b>'+(p.pa?' <small style="text-decoration:line-through;color:#999">'+p.pa.toLocaleString()+'</small>':'')+'</div><button onclick="delProd('+i+')" style="background:#ff3b301a;color:#ff3b30;border:0;padding:8px 10px;border-radius:8px;font-weight:900">🗑️</button></div>'}el.innerHTML=h}
 function delProd(i){if(!confirm('Apagar '+prods[i].n+'?'))return;prods.splice(i,1);save();render()}
-function renderAdmPed(){
-var el=document.getElementById('admPedidos');if(!el)return;
-if(pedidos.length==0){el.innerHTML='<div style="text-align:center;padding:20px;color:#888">Nenhum pedido ainda<br><small>Quando cliente finalizar no WhatsApp, aparece aqui</small></div>';return}
-var h='<b>'+pedidos.length+' PEDIDOS RECEBIDOS</b>';for(var i=0;i<pedidos.length;i++){var p=pedidos[i];h+='<div class=orderCard><div style="display:flex;justify-content:space-between"><b>#'+(1000+i)+'</b><small>'+p.data+'</small></div><div style="margin:6px 0;font-size:12px"><b>'+p.cliente+'</b> • '+p.tel+'<br><small>'+p.end+'</small></div><div style="font-size:11px;background:#fff;padding:6px;border-radius:6px;margin:6px 0">'+p.lista+'</div><div style="display:flex;justify-content:space-between;font-weight:900"><span>Total</span><span style="color:#25D366">'+p.total.toLocaleString()+' Kz</span></div></div>'}
-el.innerHTML=h;
-}
-function enviarZap(){
-var n=document.getElementById('nome').value,t=document.getElementById('tel').value,e=document.getElementById('end').value,pay=document.getElementById('paySel').value;
-if(!n||!t||!e){alert('Preencha nome, WhatsApp e endereço');return}
-if(cart.length==0){alert('Carrinho vazio');return}
-var tot=0,lista='';for(var i=0;i<cart.length;i++){tot+=cart[i].p*cart[i].q;lista+='• '+cart[i].n+' x'+cart[i].q+' - '+(cart[i].p*cart[i].q).toLocaleString()+' Kz\\n'}
-var frete=parseInt(conf.frete)||1500;
-var msg='🛒 *NOVO PEDIDO - '+(conf.nome||'OneXpress')+'*\\n\\n👤 Cliente: '+n+'\\n📞 Tel: '+t+'\\n🏠 End: '+e+'\\n💳 Pag: '+pay+'\\n\\n📦 PRODUTOS:\\n'+lista+'\\n💰 Subtotal: '+tot.toLocaleString()+' Kz\\n🛵 Entrega: '+frete.toLocaleString()+' Kz\\n💵 *TOTAL: '+(tot+frete).toLocaleString()+' Kz*\\n\\n✅ Confirma entrega 24h?';
-pedidos.unshift({data:new Date().toLocaleString(),cliente:n,tel:t,end:e,lista:lista,total:tot+frete});save();
-window.open('https://wa.me/'+(conf.zap||'244925356739')+'?text='+encodeURIComponent(msg),'_blank');
-cart=[];save();renderCart();closeM();alert('✅ Pedido enviado para WhatsApp!');
-}
-function saveConf(){
-conf.nome=document.getElementById('cNome').value;conf.zap=document.getElementById('cZap').value;conf.frete=document.getElementById('cFrete').value;save();alert('Configurações salvas!');render();
-}
+function renderAdmPed(){var el=document.getElementById('admPedidos');if(!el)return;if(pedidos.length==0){el.innerHTML='<div style="text-align:center;padding:30px;color:#888">📦 Nenhum pedido ainda<br><small>Quando cliente finalizar no WhatsApp, aparece aqui</small></div>';document.getElementById('pedList').innerHTML=el.innerHTML;return}var h='';for(var i=0;i<pedidos.length;i++){var p=pedidos[i];h+='<div style="background:#f9f9f9;border:1px solid #eee;border-radius:12px;padding:12px;margin:8px 0"><div style="display:flex;justify-content:space-between"><b>#'+(1000+i)+'</b><small>'+p.data+'</small></div><div style="margin:6px 0;font-size:12px"><b>'+p.cliente+'</b> • '+p.tel+'<br><small>'+p.end+'</small></div><div style="font-size:11px;background:#fff;padding:8px;border-radius:8px;margin:6px 0;white-space:pre-line">'+p.lista+'</div><div style="display:flex;justify-content:space-between;font-weight:900"><span>Total</span><span style="color:#25D366">'+p.total.toLocaleString()+' Kz</span></div></div>'}el.innerHTML=h;document.getElementById('pedList').innerHTML=h}
+function enviarZap(){var n=document.getElementById('nome').value,t=document.getElementById('tel').value,e=document.getElementById('end').value,pay=document.getElementById('paySel').value;if(!n||!t||!e){alert('Preencha nome, WhatsApp e endereço');return}if(cart.length==0){alert('Carrinho vazio');return}var tot=0,lista='';for(var i=0;i<cart.length;i++){tot+=cart[i].p*cart[i].q;lista+='• '+cart[i].n+' x'+cart[i].q+' - '+(cart[i].p*cart[i].q).toLocaleString()+' Kz\n'}var frete=parseInt(conf.frete)||1500;var msg='🛒 *NOVO PEDIDO - '+conf.nome+'*\n\n👤 Cliente: '+n+'\n📞 Tel: '+t+'\n🏠 End: '+e+'\n💳 Pagamento: '+pay+'\n\n📦 PRODUTOS:\n'+lista+'\n💰 Subtotal: '+tot.toLocaleString()+' Kz\n🛵 Entrega: '+frete.toLocaleString()+' Kz\n💵 *TOTAL: '+(tot+frete).toLocaleString()+' Kz*\n\n✅ Confirma entrega 24h Luanda?';pedidos.unshift({data:new Date().toLocaleString(),cliente:n,tel:t,end:e,lista:lista,total:tot+frete});save();window.open('https://wa.me/'+conf.zap+'?text='+encodeURIComponent(msg),'_blank');cart=[];save();renderCart();closeM();alert('✅ Pedido enviado!')}
+function saveConf(){conf.nome=document.getElementById('cNome').value;conf.zap=document.getElementById('cZap').value;conf.frete=document.getElementById('cFrete').value;save();alert('✅ Configurações salvas!');render()}
 document.getElementById('cNome').value=conf.nome;document.getElementById('cZap').value=conf.zap;document.getElementById('cFrete').value=conf.frete;
+var d=document.getElementById('dataEnt');if(d)d.valueAsDate=new Date();
 render();
 </script></body></html>
